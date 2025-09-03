@@ -16,10 +16,9 @@
         <!-- Google fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@300;400;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         
@@ -32,19 +31,16 @@
 
             body {
                 font-family: 'Noto Sans KR', sans-serif;
-                background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+                background: #f1ebe5;
                 color: #2c3e50;
                 line-height: 1.6;
                 overflow-x: hidden;
             }
 
-            /* 헤더 섹션 */
+            /* 히어로 섹션 */
             .hero-section {
                 min-height: 100vh;
-                background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/img/url-main.jpg');
-                background-size: cover;
-                background-position: center;
-                background-attachment: fixed;
+                background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -60,46 +56,47 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background: linear-gradient(45deg, rgba(255,192,203,0.2), rgba(255,182,193,0.2));
-                z-index: 1;
+                background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="stars" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="1" fill="%23568a35" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>');
+                opacity: 0.5;
             }
 
             .hero-content {
                 position: relative;
                 z-index: 2;
-                color: white;
+                color: #2c3e50;
                 max-width: 600px;
                 padding: 2rem;
                 animation: fadeInUp 1.5s ease-out;
             }
 
             .hero-title {
-                font-family: 'Great Vibes', cursive;
-                font-size: 3.5rem;
-                font-weight: 400;
+                font-family: 'Noto Serif Display', serif;
+                font-size: 3rem;
+                font-weight: 300;
                 margin-bottom: 1rem;
-                text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-                animation: float 3s ease-in-out infinite;
+                color: #568a35;
+                letter-spacing: 2px;
             }
 
             .hero-subtitle {
                 font-family: 'Dancing Script', cursive;
                 font-size: 1.8rem;
                 margin-bottom: 2rem;
-                text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+                color: #6c757d;
             }
 
             .wedding-date {
-                font-size: 1.2rem;
-                font-weight: 300;
+                font-size: 1.3rem;
+                font-weight: 400;
                 margin-bottom: 1rem;
-                text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+                color: #495057;
+                font-family: 'Noto Serif Display', serif;
             }
 
             .wedding-location {
-                font-size: 1rem;
-                opacity: 0.9;
-                text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+                font-size: 1.1rem;
+                color: #6c757d;
+                font-weight: 300;
             }
 
             /* 섹션 공통 스타일 */
@@ -109,12 +106,13 @@
             }
 
             .section-title {
-                font-family: 'Playfair Display', serif;
+                font-family: 'Noto Serif Display', serif;
                 font-size: 2.5rem;
                 text-align: center;
                 margin-bottom: 3rem;
-                color: #2c3e50;
+                color: #568a35;
                 position: relative;
+                font-weight: 300;
             }
 
             .section-title::after {
@@ -124,9 +122,42 @@
                 left: 50%;
                 transform: translateX(-50%);
                 width: 60px;
-                height: 3px;
-                background: linear-gradient(90deg, #e74c3c, #f39c12);
-                border-radius: 2px;
+                height: 2px;
+                background: #568a35;
+            }
+
+            /* 성경 구절 섹션 */
+            .bible-section {
+                background: white;
+                padding: 4rem 2rem;
+                text-align: center;
+                border-bottom: 1px solid #e9ecef;
+            }
+
+            .bible-quote {
+                font-family: 'Noto Serif Display', serif;
+                font-size: 1.2rem;
+                line-height: 1.8;
+                color: #495057;
+                max-width: 800px;
+                margin: 0 auto;
+                position: relative;
+                font-weight: 300;
+            }
+
+            .bible-quote::before {
+                content: '🔑';
+                display: block;
+                font-size: 2rem;
+                margin-bottom: 1rem;
+                opacity: 0.7;
+            }
+
+            .bible-reference {
+                font-size: 0.9rem;
+                color: #6c757d;
+                margin-top: 1rem;
+                font-style: italic;
             }
 
             /* 소개 섹션 */
@@ -146,8 +177,8 @@
 
             /* 신랑신부 섹션 */
             .couple-section {
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                color: white;
+                background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+                padding: 4rem 2rem;
             }
 
             .couple-container {
@@ -159,41 +190,43 @@
             }
 
             .couple-card {
-                background: rgba(255,255,255,0.1);
-                backdrop-filter: blur(10px);
-                border-radius: 20px;
-                padding: 2rem;
+                background: white;
+                border-radius: 15px;
+                padding: 2.5rem;
                 text-align: center;
-                box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-                border: 1px solid rgba(255,255,255,0.2);
+                box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+                border: 1px solid #e9ecef;
                 transition: transform 0.3s ease, box-shadow 0.3s ease;
             }
 
             .couple-card:hover {
                 transform: translateY(-5px);
-                box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.12);
             }
 
             .couple-photo {
-                width: 150px;
-                height: 150px;
+                width: 120px;
+                height: 120px;
                 border-radius: 50%;
                 object-fit: cover;
-                border: 4px solid rgba(255,255,255,0.3);
+                border: 3px solid #568a35;
                 margin: 0 auto 1.5rem;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                box-shadow: 0 3px 10px rgba(0,0,0,0.1);
             }
 
             .couple-name {
-                font-family: 'Playfair Display', serif;
-                font-size: 2rem;
+                font-family: 'Noto Serif Display', serif;
+                font-size: 1.8rem;
                 margin-bottom: 0.5rem;
+                color: #2c3e50;
+                font-weight: 300;
             }
 
             .couple-parents {
                 font-size: 1rem;
-                opacity: 0.9;
+                color: #6c757d;
                 margin-bottom: 1rem;
+                font-weight: 400;
             }
 
             .contact-buttons {
@@ -201,29 +234,43 @@
                 justify-content: center;
                 gap: 1rem;
                 margin-top: 1.5rem;
+                flex-wrap: wrap;
             }
 
             .contact-btn {
-                background: rgba(255,255,255,0.2);
-                border: 1px solid rgba(255,255,255,0.3);
+                background: #568a35;
+                border: none;
                 color: white;
                 padding: 0.8rem 1.5rem;
                 border-radius: 25px;
                 text-decoration: none;
                 transition: all 0.3s ease;
-                backdrop-filter: blur(10px);
+                font-size: 0.9rem;
+                font-weight: 500;
             }
 
             .contact-btn:hover {
-                background: rgba(255,255,255,0.3);
+                background: #4a7c2e;
                 transform: translateY(-2px);
                 color: white;
                 text-decoration: none;
+                box-shadow: 0 3px 10px rgba(86, 138, 53, 0.3);
+            }
+
+            .foldable-content {
+                background: #f8f9fa;
+                border-radius: 10px;
+                margin-top: 1rem;
+                padding: 1rem;
+                border: 1px solid #e9ecef;
+                font-size: 0.9rem;
+                color: #495057;
             }
 
             /* 갤러리 섹션 */
             .gallery-section {
-                background: white;
+                background: #f8f9fa;
+                padding: 4rem 2rem;
             }
 
             .gallery-grid {
@@ -238,12 +285,13 @@
                 position: relative;
                 border-radius: 15px;
                 overflow: hidden;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
                 transition: transform 0.3s ease;
+                background: white;
             }
 
             .gallery-item:hover {
-                transform: translateY(-10px);
+                transform: translateY(-5px);
             }
 
             .gallery-item img {
@@ -258,7 +306,7 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+                background: linear-gradient(rgba(86, 138, 53, 0.8), rgba(86, 138, 53, 0.9));
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -279,36 +327,63 @@
 
             /* 정보 섹션 */
             .info-section {
-                background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-                color: white;
+                background: white;
+                padding: 4rem 2rem;
                 text-align: center;
             }
 
             .info-card {
-                background: rgba(255,255,255,0.1);
-                backdrop-filter: blur(10px);
-                border-radius: 20px;
+                background: #f8f9fa;
+                border-radius: 15px;
                 padding: 2rem;
                 margin: 2rem auto;
-                max-width: 600px;
-                border: 1px solid rgba(255,255,255,0.2);
+                max-width: 700px;
+                border: 1px solid #e9ecef;
             }
 
             .info-title {
                 font-size: 1.5rem;
                 margin-bottom: 1rem;
                 font-weight: 600;
+                color: #568a35;
+                font-family: 'Noto Serif Display', serif;
+                font-weight: 300;
             }
 
             .info-text {
                 font-size: 1.1rem;
                 line-height: 1.6;
                 margin-bottom: 1.5rem;
+                color: #495057;
+            }
+
+            .transport-info {
+                background: white;
+                border-radius: 10px;
+                padding: 1.5rem;
+                margin: 1rem 0;
+                text-align: left;
+                border: 1px solid #e9ecef;
+            }
+
+            .transport-title {
+                font-weight: 600;
+                color: #568a35;
+                margin-bottom: 0.5rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .transport-detail {
+                color: #6c757d;
+                font-size: 0.95rem;
+                margin-bottom: 0.5rem;
             }
 
             .map-btn {
-                background: rgba(255,255,255,0.2);
-                border: 1px solid rgba(255,255,255,0.3);
+                background: #568a35;
+                border: none;
                 color: white;
                 padding: 1rem 2rem;
                 border-radius: 25px;
@@ -316,14 +391,15 @@
                 display: inline-block;
                 margin: 1rem;
                 transition: all 0.3s ease;
-                backdrop-filter: blur(10px);
+                font-weight: 500;
             }
 
             .map-btn:hover {
-                background: rgba(255,255,255,0.3);
+                background: #4a7c2e;
                 transform: translateY(-2px);
                 color: white;
                 text-decoration: none;
+                box-shadow: 0 3px 10px rgba(86, 138, 53, 0.3);
             }
 
             /* 지도 섹션 */
@@ -349,7 +425,7 @@
                 width: 60px;
                 height: 60px;
                 border-radius: 15px;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                box-shadow: 0 3px 10px rgba(0,0,0,0.1);
                 transition: transform 0.3s ease;
             }
 
@@ -361,7 +437,7 @@
                 width: 100%;
                 height: 300px;
                 border-radius: 15px;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             }
 
             /* 푸터 */
@@ -407,19 +483,10 @@
                 }
             }
 
-            @keyframes float {
-                0%, 100% {
-                    transform: translateY(0px);
-                }
-                50% {
-                    transform: translateY(-10px);
-                }
-            }
-
             /* 반응형 디자인 */
             @media (max-width: 768px) {
                 .hero-title {
-                    font-size: 2.5rem;
+                    font-size: 2.2rem;
                 }
 
                 .hero-subtitle {
@@ -431,7 +498,7 @@
                 }
 
                 .section-title {
-                    font-size: 2rem;
+                    font-size: 1.8rem;
                 }
 
                 .couple-container {
@@ -471,33 +538,31 @@
         <section class="hero-section">
             <div class="hero-content">
                 <h1 class="hero-title">지훈 & 민지</h1>
-                <p class="hero-subtitle">We invite you to our wedding</p>
-                <div class="wedding-date">2025.12.06 오후 3시</div>
-                <div class="wedding-location">흑석동성당</div>
+                <p class="hero-subtitle">We're getting married</p>
+                <div class="wedding-date">2025년 12월 6일 토요일 오후 3시</div>
+                <div class="wedding-location">흑석동성당 내 카나의 혼인성당 2층</div>
             </div>
         </section>
 
-        <!-- 소개 섹션 -->
-        <section class="intro-section section">
-            <h2 class="section-title fade-in">초대합니다</h2>
-            <div class="intro-text fade-in">
+        <!-- 성경 구절 섹션 -->
+        <section class="bible-section">
+            <div class="bible-quote fade-in">
                 사랑은 모든 것을 덮어 주고<br>
                 모든 것을 믿으며<br>
                 모든 것을 바라고<br>
-                모든 것을 견디어 냅니다.<br><br>
-                <em>(1코린 13,7)</em><br><br>
-                지훈🤍민지 드림
+                모든 것을 견디어 냅니다.
+                <div class="bible-reference">(1코린 13,7)</div>
             </div>
         </section>
 
         <!-- 신랑신부 섹션 -->
-        <section class="couple-section section">
+        <section class="couple-section">
             <h2 class="section-title fade-in">신랑 & 신부</h2>
             <div class="couple-container">
                 <div class="couple-card fade-in">
                     <img src="assets/img/ys.jpg" alt="신랑" class="couple-photo">
-                    <h3 class="couple-name">신랑 변지훈</h3>
-                    <p class="couple-parents">변정근 · 이덕희의 장남</p>
+                    <h3 class="couple-name">신랑 지훈 (사무엘)</h3>
+                    <p class="couple-parents">변정근 (대건안드레아) · 이덕희 (마르티나)의 장남</p>
                     <div class="contact-buttons">
                         <a href="tel:01000000000" class="contact-btn">
                             <i class="fa-solid fa-phone"></i> 연락하기
@@ -511,16 +576,16 @@
                             <i class="fa-solid fa-users"></i> 혼주 연락처
                         </a>
                     </div>
-                    <div class="foldable-content" style="display: none; margin-top: 1rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 10px;">
-                        <p>변정근 <a href="tel:01000000000"><i class="fa-solid fa-phone"></i></a> <a href="sms:01000000000"><i class="fa-solid fa-envelope"></i></a> <a href="#" onclick="groomsFatherAccountNumber(); return false;"><i class="fa-solid fa-comments-dollar"></i></a></p>
-                        <p>이덕희 <a href="tel:01000000000"><i class="fa-solid fa-phone"></i></a> <a href="sms:01000000000"><i class="fa-solid fa-envelope"></i></a></p>
+                    <div class="foldable-content" style="display: none;">
+                        <p>변정근 (대건안드레아) <a href="tel:01000000000"><i class="fa-solid fa-phone"></i></a> <a href="sms:01000000000"><i class="fa-solid fa-envelope"></i></a> <a href="#" onclick="groomsFatherAccountNumber(); return false;"><i class="fa-solid fa-comments-dollar"></i></a></p>
+                        <p>이덕희 (마르티나) <a href="tel:01000000000"><i class="fa-solid fa-phone"></i></a> <a href="sms:01000000000"><i class="fa-solid fa-envelope"></i></a></p>
                     </div>
                 </div>
 
                 <div class="couple-card fade-in">
                     <img src="assets/img/jy.jpg" alt="신부" class="couple-photo">
-                    <h3 class="couple-name">신부 이민지</h3>
-                    <p class="couple-parents">이종후 · 진숙희의 차녀</p>
+                    <h3 class="couple-name">신부 민지 (첼리나)</h3>
+                    <p class="couple-parents">이종후 (레토) · 진숙희 (요안나)의 차녀</p>
                     <div class="contact-buttons">
                         <a href="tel:01000000000" class="contact-btn">
                             <i class="fa-solid fa-phone"></i> 연락하기
@@ -534,9 +599,9 @@
                             <i class="fa-solid fa-users"></i> 혼주 연락처
                         </a>
                     </div>
-                    <div class="foldable-content2" style="display: none; margin-top: 1rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 10px;">
-                        <p>이종후 <a href="tel:01000000000"><i class="fa-solid fa-phone"></i></a> <a href="sms:01000000000"><i class="fa-solid fa-envelope"></i></a></p>
-                        <p>진숙희 <a href="tel:01000000000"><i class="fa-solid fa-phone"></i></a> <a href="sms:01000000000"><i class="fa-solid fa-envelope"></i></a></p>
+                    <div class="foldable-content" style="display: none;">
+                        <p>이종후 (레토) <a href="tel:01000000000"><i class="fa-solid fa-phone"></i></a> <a href="sms:01000000000"><i class="fa-solid fa-envelope"></i></a></p>
+                        <p>진숙희 (요안나) <a href="tel:01000000000"><i class="fa-solid fa-phone"></i></a> <a href="sms:01000000000"><i class="fa-solid fa-envelope"></i></a></p>
                     </div>
                 </div>
             </div>
@@ -546,34 +611,65 @@
         <section class="gallery-section section">
             <h2 class="section-title fade-in">갤러리</h2>
             <div class="gallery-grid">
-                <a href="pages/studio.html" class="gallery-item fade-in">
-                    <img src="assets/img/main.jpg" alt="스튜디오 사진">
-                    <div class="gallery-overlay">
-                        <div class="gallery-text">스튜디오 사진 보러가기<br><small>At IVE Studio</small></div>
-                    </div>
-                </a>
-                <a href="pages/self.html" class="gallery-item fade-in">
-                    <img src="assets/img/self-main.jpeg" alt="셀프 스냅">
-                    <div class="gallery-overlay">
-                        <div class="gallery-text">셀프 스냅 사진 보러가기<br><small>Memories of 6 years</small></div>
-                    </div>
-                </a>
+                <div class="gallery-item">
+                    <img src="assets/img/gallery/1.jpg" alt="갤러리">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/img/gallery/2.jpg" alt="갤러리">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/img/gallery/3.jpg" alt="갤러리">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/img/gallery/4.jpg" alt="갤러리">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/img/gallery/5.jpg" alt="갤러리">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/img/gallery/6.jpg" alt="갤러리">
+                </div>
             </div>
         </section>
 
-        <!-- 정보 섹션 -->
-        <section class="info-section section">
+        <!-- 결혼식 정보 섹션 -->
+        <section class="info-section">
             <h2 class="section-title fade-in">결혼식 안내</h2>
             <div class="info-card fade-in">
-                <h3 class="info-title">📅 2025.12.06 오후 3시</h3>
-                <p class="info-text">📍 흑석동성당</p>
-                <p class="info-text">성전 건너편 교육관 건물로 이동하여 식사 하실 수 있습니다. 😊</p>
+                <h3 class="info-title">📅 2025년 12월 6일 토요일 오후 3시</h3>
+                <p class="info-text">📍 흑석동성당 내 카나의 혼인성당 2층</p>
+                
+                <div class="transport-info">
+                    <div class="transport-title">
+                        <i class="fa-solid fa-star" style="color: #568a35;"></i> 교통편 안내
+                    </div>
+                    <div class="transport-detail">
+                        <strong>지하철:</strong> 9호선 흑석역 4번 출구 도보 5분
+                    </div>
+                    <div class="transport-detail">
+                        <strong>버스:</strong> 흑석동 효사정 앞: 151, 350, 360, 640, 752
+                    </div>
+                    <div class="transport-detail">
+                        <strong>버스:</strong> 중앙대학교: 5515, 5517, 5524
+                    </div>
+                    <div class="transport-detail">
+                        <strong>주차:</strong> 성당 지하 주차장 B1, B2 (최대 140대)
+                    </div>
+                    <div class="transport-detail">
+                        <strong>주소:</strong> 서울시 동작구 흑석로 13길 3 흑석동성당
+                    </div>
+                </div>
+                
                 <a href="https://bstsd.or.kr/map" class="map-btn">
                     <i class="fa-solid fa-map-marker-alt"></i> 오시는 길
                 </a>
             </div>
+            
             <div class="info-card fade-in">
-                <p class="info-text">💐 축하화환은 정중히 사양합니다.<br>화환 대신 축복미를 보내주시면 어려운 이웃들에게 보내겠습니다.</p>
+                <div class="transport-title" style="justify-content: center; margin-bottom: 1rem;">
+                    <i class="fa-solid fa-star" style="color: #568a35;"></i> 화환 안내
+                </div>
+                <p class="info-text">화환, 꽃바구니는 정중히 사양합니다.<br>화환 대신 축복미(쌀화환)를 보내주시면 어려운 이웃들에게 전달하겠습니다.</p>
             </div>
         </section>
 
