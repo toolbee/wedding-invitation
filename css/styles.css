@@ -11178,3 +11178,125 @@ a.no-style {
   transition: background-color 0.15s ease-in-out;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
 }
+
+body {
+    background: linear-gradient(135deg, #fbeee6 0%, #f7cac9 100%);
+    font-family: 'Gowun Dodum', 'Song Myung', 'Amatic SC', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    color: #4b2e2e;
+}
+
+header.masthead {
+    background: url('../assets/img/url-main.jpg') center/cover no-repeat;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 30px 30px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+header .container {
+    background: rgba(255,255,255,0.6);
+    border-radius: 20px;
+    padding: 24px 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+section.content-section {
+    margin: 24px 0;
+    padding: 18px 8px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.7);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.bg-primary {
+    background: linear-gradient(90deg, #f7cac9 0%, #fbeee6 100%) !important;
+    color: #4b2e2e !important;
+}
+
+.text-white {
+    color: #4b2e2e !important;
+}
+
+.img-fluid.rounded-circle {
+    border: 4px solid #f7cac9;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
+
+.btn-light {
+    background: #f7cac9;
+    color: #4b2e2e;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.btn-light:hover {
+    background: #fbeee6;
+    color: #4b2e2e;
+}
+
+.footer {
+    background: transparent;
+    padding: 24px 0 12px 0;
+}
+
+@media (max-width: 600px) {
+    header.masthead {
+        min-height: 220px;
+    }
+    .img-fluid.rounded-circle {
+        width: 80px;
+        height: 80px;
+    }
+    section.content-section {
+        padding: 12px 4px;
+    }
+    .container {
+        padding: 0 8px;
+    }
+    iframe {
+        width: 100% !important;
+        height: 220px !important;
+    }
+}
+
+/* 감성적인 애니메이션 효과 */
+h2, h3, p {
+    transition: color 0.3s, background 0.3s;
+}
+
+.toggle-button {
+    cursor: pointer;
+    color: #d291bc;
+    font-weight: bold;
+}
+
+.foldable-content, .foldable-content2, .foldable-content3 {
+    display: none;
+    background: #fbeee6;
+    border-radius: 12px;
+    margin-top: 8px;
+    padding: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.map-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 8px;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+a.no-style {
+    text-decoration: none;
+    color: inherit;
+}

@@ -1,210 +1,631 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="og:image" content="assets/img/url-main.jpg">
         <meta property="og:description" content="2025.12.06 지훈🤍민지 결혼합니다."/>
         <meta charset="utf-8" />
-        <meta name="description" content="" />
+        <meta name="description" content="지훈과 민지의 결혼식에 초대합니다" />
         <meta name="author" content="" />
-        <title>지훈🤍민지</title>
+        <title>지훈🤍민지의 결혼식</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Simple line icons-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" rel="stylesheet" />
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
         
+        <!-- Font Awesome icons -->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        
+        <!-- Google fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Song+Myung&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
+            body {
+                font-family: 'Noto Sans KR', sans-serif;
+                background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+                color: #2c3e50;
+                line-height: 1.6;
+                overflow-x: hidden;
+            }
+
+            /* 헤더 섹션 */
+            .hero-section {
+                min-height: 100vh;
+                background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/img/url-main.jpg');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .hero-section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(45deg, rgba(255,192,203,0.2), rgba(255,182,193,0.2));
+                z-index: 1;
+            }
+
+            .hero-content {
+                position: relative;
+                z-index: 2;
+                color: white;
+                max-width: 600px;
+                padding: 2rem;
+                animation: fadeInUp 1.5s ease-out;
+            }
+
+            .hero-title {
+                font-family: 'Great Vibes', cursive;
+                font-size: 3.5rem;
+                font-weight: 400;
+                margin-bottom: 1rem;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+                animation: float 3s ease-in-out infinite;
+            }
+
+            .hero-subtitle {
+                font-family: 'Dancing Script', cursive;
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+                text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            }
+
+            .wedding-date {
+                font-size: 1.2rem;
+                font-weight: 300;
+                margin-bottom: 1rem;
+                text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            }
+
+            .wedding-location {
+                font-size: 1rem;
+                opacity: 0.9;
+                text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            }
+
+            /* 섹션 공통 스타일 */
+            .section {
+                padding: 4rem 2rem;
+                position: relative;
+            }
+
+            .section-title {
+                font-family: 'Playfair Display', serif;
+                font-size: 2.5rem;
+                text-align: center;
+                margin-bottom: 3rem;
+                color: #2c3e50;
+                position: relative;
+            }
+
+            .section-title::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60px;
+                height: 3px;
+                background: linear-gradient(90deg, #e74c3c, #f39c12);
+                border-radius: 2px;
+            }
+
+            /* 소개 섹션 */
+            .intro-section {
+                background: white;
+                text-align: center;
+            }
+
+            .intro-text {
+                font-size: 1.1rem;
+                line-height: 1.8;
+                max-width: 800px;
+                margin: 0 auto;
+                color: #34495e;
+                font-weight: 300;
+            }
+
+            /* 신랑신부 섹션 */
+            .couple-section {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+            }
+
+            .couple-container {
+                display: flex;
+                flex-direction: column;
+                gap: 3rem;
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+
+            .couple-card {
+                background: rgba(255,255,255,0.1);
+                backdrop-filter: blur(10px);
+                border-radius: 20px;
+                padding: 2rem;
+                text-align: center;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+                border: 1px solid rgba(255,255,255,0.2);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .couple-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            }
+
+            .couple-photo {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 4px solid rgba(255,255,255,0.3);
+                margin: 0 auto 1.5rem;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            }
+
+            .couple-name {
+                font-family: 'Playfair Display', serif;
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .couple-parents {
+                font-size: 1rem;
+                opacity: 0.9;
+                margin-bottom: 1rem;
+            }
+
+            .contact-buttons {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                margin-top: 1.5rem;
+            }
+
+            .contact-btn {
+                background: rgba(255,255,255,0.2);
+                border: 1px solid rgba(255,255,255,0.3);
+                color: white;
+                padding: 0.8rem 1.5rem;
+                border-radius: 25px;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                backdrop-filter: blur(10px);
+            }
+
+            .contact-btn:hover {
+                background: rgba(255,255,255,0.3);
+                transform: translateY(-2px);
+                color: white;
+                text-decoration: none;
+            }
+
+            /* 갤러리 섹션 */
+            .gallery-section {
+                background: white;
+            }
+
+            .gallery-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .gallery-item {
+                position: relative;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                transition: transform 0.3s ease;
+            }
+
+            .gallery-item:hover {
+                transform: translateY(-10px);
+            }
+
+            .gallery-item img {
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+            }
+
+            .gallery-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .gallery-item:hover .gallery-overlay {
+                opacity: 1;
+            }
+
+            .gallery-text {
+                color: white;
+                text-align: center;
+                font-size: 1.2rem;
+                font-weight: 500;
+            }
+
+            /* 정보 섹션 */
+            .info-section {
+                background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+                color: white;
+                text-align: center;
+            }
+
+            .info-card {
+                background: rgba(255,255,255,0.1);
+                backdrop-filter: blur(10px);
+                border-radius: 20px;
+                padding: 2rem;
+                margin: 2rem auto;
+                max-width: 600px;
+                border: 1px solid rgba(255,255,255,0.2);
+            }
+
+            .info-title {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+                font-weight: 600;
+            }
+
+            .info-text {
+                font-size: 1.1rem;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+            }
+
+            .map-btn {
+                background: rgba(255,255,255,0.2);
+                border: 1px solid rgba(255,255,255,0.3);
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 25px;
+                text-decoration: none;
+                display: inline-block;
+                margin: 1rem;
+                transition: all 0.3s ease;
+                backdrop-filter: blur(10px);
+            }
+
+            .map-btn:hover {
+                background: rgba(255,255,255,0.3);
+                transform: translateY(-2px);
+                color: white;
+                text-decoration: none;
+            }
+
+            /* 지도 섹션 */
+            .map-section {
+                background: white;
+                padding: 2rem;
+            }
+
+            .map-container {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            .map-buttons {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                margin-bottom: 2rem;
+                flex-wrap: wrap;
+            }
+
+            .map-icon {
+                width: 60px;
+                height: 60px;
+                border-radius: 15px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                transition: transform 0.3s ease;
+            }
+
+            .map-icon:hover {
+                transform: scale(1.1);
+            }
+
+            .map-iframe {
+                width: 100%;
+                height: 300px;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+
+            /* 푸터 */
+            .footer {
+                background: #2c3e50;
+                color: white;
+                text-align: center;
+                padding: 2rem;
+            }
+
+            .footer-buttons {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .footer-btn {
+                background: rgba(255,255,255,0.1);
+                border: 1px solid rgba(255,255,255,0.2);
+                color: white;
+                padding: 0.8rem 1.5rem;
+                border-radius: 25px;
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+
+            .footer-btn:hover {
+                background: rgba(255,255,255,0.2);
+                color: white;
+                text-decoration: none;
+            }
+
+            /* 애니메이션 */
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes float {
+                0%, 100% {
+                    transform: translateY(0px);
+                }
+                50% {
+                    transform: translateY(-10px);
+                }
+            }
+
+            /* 반응형 디자인 */
+            @media (max-width: 768px) {
+                .hero-title {
+                    font-size: 2.5rem;
+                }
+
+                .hero-subtitle {
+                    font-size: 1.4rem;
+                }
+
+                .section {
+                    padding: 2rem 1rem;
+                }
+
+                .section-title {
+                    font-size: 2rem;
+                }
+
+                .couple-container {
+                    gap: 2rem;
+                }
+
+                .gallery-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .contact-buttons {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .map-buttons {
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
+
+            /* 스크롤 애니메이션 */
+            .fade-in {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: all 0.6s ease;
+            }
+
+            .fade-in.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        </style>
     </head>
-    <body id="page-top">
-
-        <!-- Header-->
-        <header class="masthead d-flex align-items-center">
-            <div class="container px-4 px-lg-5 text-center">
-                <h2 class="mb-1"> </h2>
-                <h2 class="mb-1"> </h2>
-                <h2 style="font-family: 'Amatic SC', sans-serif; color: white; font-weight: bold;">Jihoon&Minji</h1>
-                <br>
-                <h2 style="font-family: 'Amatic SC', sans-serif; color: white; font-weight: bold;">| We invite you to our wedding |</h2>
-                <p style="font-family: 'Song Myung', serif; color: white; font-size: 13px;"><br>❤️2025.12.06❤️<br>오후 3시<br>흑석동성당</p>
-            </div>
-        </header>
-
-        <!-- Contents -->
-        <section class="content-section bg-light" id="about">
-            <div class="container px-4 px-lg-5 text-center">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-10">
-                        <p style="font-family: 'Song Myung', serif; font-size: 16px;">
-                            사랑은 모든 것을 덮어 주고 
-                            <br>모든 것을 믿으며 
-                            <br>모든 것을 바라고 
-                            <br>모든 것을 견디어 냅니다.
-                            <br>(1코린 13,7)
-                        </p>
-                        <h2 style="font-family: 'Song Myung', serif;"><br>지훈🤍민지 드림</h2>
-                    </div>
-                </div>
+    <body>
+        <!-- 히어로 섹션 -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">지훈 & 민지</h1>
+                <p class="hero-subtitle">We invite you to our wedding</p>
+                <div class="wedding-date">2025.12.06 오후 3시</div>
+                <div class="wedding-location">흑석동성당</div>
             </div>
         </section>
 
-        <!-- Introduction -->
-        <section class="content-section bg-primary text-white text-center" id="services">
-            <div class="container px-4 px-lg-5">
-                <div class="content-section-heading">
-                    <p style="font-family: 'Song Myung', serif; font-size: 25px; font-weight: bold;">신랑&신부</p>
-                </div>
-                <br>
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-lg-6 col-md-6 mb-5 mb-lg-0">
-                        <p style="font-family: 'Song Myung', serif; font-size: 20px;">변정근 이덕희의 장남</p>
-                        <h3 style="font-family: 'Song Myung', serif;">신랑 변지훈</h3>
-                        <img src="assets/img/ys.jpg" class="img-fluid rounded-circle" alt="신랑 이미지">
-                        <p><br></p>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <a class="social-link rounded-circle text-white mr-3" href="xxxxxxx"><i class="fa-solid fa-phone"></i></a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="social-link rounded-circle text-white mr-3" onclick="groomAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a>
-                                </li>
-                            </ul>
-                            <div id="foldableSection">
-                                <p style="font-family: 'Song Myung', serif; font-size: 20px;" class="toggle-button" onclick="toggleFoldable()">혼주 연락처보기<span id="toggleIcon">▼</span></p>
-                                <div class="foldable-content">
-                                    <p style="font-family: 'Song Myung', serif; font-size: 15px;">변정근&nbsp;&nbsp;&nbsp;<a href="tel:01000000000"><i class="fa-solid fa-phone fa-sm"></i></a>&nbsp;&nbsp;&nbsp;<a href="sms:01000000000"><i class="fa-solid fa-envelope fa-sm"></i></a>&nbsp;&nbsp;&nbsp;<a onclick="groomsFatherAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a></p>  
-                                    <p style="font-family: 'Song Myung', serif; font-size: 15px;">이덕희&nbsp;&nbsp;&nbsp;<a href="tel:01000000000"><i class="fa-solid fa-phone fa-sm"></i></a>&nbsp;&nbsp;&nbsp;<a href="sms:01000000000"><i class="fa-solid fa-envelope fa-sm"></i></a></p>  
-                                </div>
-                            </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 mb-5 mb-lg-0">
-                        <p style="font-family: 'Song Myung', serif; font-size: 20px;">이종후 진숙희의 차녀</p>
-                        <h3 style="font-family: 'Song Myung', serif;">신부 이민지</h3>
-                        <img src="assets/img/jy.jpg" class="img-fluid rounded-circle" alt="신부 이미지">
-                        <p><br></p>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <a class="social-link rounded-circle text-white mr-5" href="xxxxxxx"><i class="fa-solid fa-phone"></i></a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="social-link rounded-circle text-white mr-5" onclick="brideAccountNumber(); return false;" href="#!"><i class="fa-solid fa-comments-dollar"></i></a>
-                                </li>
-                            </ul>
-
-                            <div id="foldableSection">
-                                <p style="font-family: 'Song Myung', serif; font-size: 20px;" class="toggle-button" onclick="toggleFoldable2()">혼주 연락처보기<span id="toggleIcon2">▼</span></p>
-                                <div class="foldable-content2">
-                                    <p style="font-family: 'Song Myung', serif; font-size: 15px;">이종후&nbsp;&nbsp;&nbsp;<a href="tel:01000000000"><i class="fa-solid fa-phone fa-sm"></i></a>&nbsp;&nbsp;&nbsp;<a href="sms:01000000000"><i class="fa-solid fa-envelope fa-sm"></i></a></p>  
-                                    <p style="font-family: 'Song Myung', serif; font-size: 15px;">진숙희&nbsp;&nbsp;&nbsp;<a href="tel:01000000000"><i class="fa-solid fa-phone fa-sm"></i></a>&nbsp;&nbsp;&nbsp;<a href="sms:01000000000"><i class="fa-solid fa-envelope fa-sm"></i></a></p>  
-                                </div>
-                            </div>
-                    </div>
-                </div>
+        <!-- 소개 섹션 -->
+        <section class="intro-section section">
+            <h2 class="section-title fade-in">초대합니다</h2>
+            <div class="intro-text fade-in">
+                사랑은 모든 것을 덮어 주고<br>
+                모든 것을 믿으며<br>
+                모든 것을 바라고<br>
+                모든 것을 견디어 냅니다.<br><br>
+                <em>(1코린 13,7)</em><br><br>
+                지훈🤍민지 드림
             </div>
         </section>
-        
-        
-        <!-- Photo Zone -->
-        <section class="content-section" id="portfolio">
-            <div class="container px-4 px-lg-5">
-                <div class="content-section-heading text-center">
-                    <p style="font-family: 'Song Myung', serif; font-size: 25px; font-weight: bold;">갤러리</p>
-                </div>
-                <div class="row gx-0">
-                    <div class="col-lg-6">
-                        <a class="portfolio-item" href="pages/studio.html">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <div class="h2" style="font-family: 'Song Myung', serif;">스튜디오 사진 보러가기</div>
-                                    <p class="mb-0" style="font-family: 'Song Myung', serif;">At IVE Studio</p>
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/main.jpg" alt="..." />
+
+        <!-- 신랑신부 섹션 -->
+        <section class="couple-section section">
+            <h2 class="section-title fade-in">신랑 & 신부</h2>
+            <div class="couple-container">
+                <div class="couple-card fade-in">
+                    <img src="assets/img/ys.jpg" alt="신랑" class="couple-photo">
+                    <h3 class="couple-name">신랑 변지훈</h3>
+                    <p class="couple-parents">변정근 · 이덕희의 장남</p>
+                    <div class="contact-buttons">
+                        <a href="tel:01000000000" class="contact-btn">
+                            <i class="fa-solid fa-phone"></i> 연락하기
+                        </a>
+                        <a href="#" onclick="groomAccountNumber(); return false;" class="contact-btn">
+                            <i class="fa-solid fa-comments-dollar"></i> 계좌번호
                         </a>
                     </div>
-                    <div class="col-lg-6">
-                        <a class="portfolio-item" href="pages/self.html">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <div class="h2" style="font-family: 'Song Myung', serif;">셀프 스냅 사진 보러가기</div>
-                                    <p class="mb-0" style="font-family: 'Song Myung', serif;">Memories of 6 years</p>
-                                </div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/self-main.jpeg" alt="..." />
+                    <div class="contact-buttons">
+                        <a href="#" onclick="toggleFoldable(); return false;" class="contact-btn">
+                            <i class="fa-solid fa-users"></i> 혼주 연락처
                         </a>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Information -->
-        <section class="content-section bg-primary text-white">
-            <div class="container px-4 px-lg-5 text-center">
-                <p class="mb-4" style="font-family: 'Song Myung', serif; font-size: 20px;">📢2025.12.06 오후 3시📢<br>흑석동성당</p>
-                <p style="font-family: 'Song Myung', serif; font-size: 16px;"><br>성전 건너편 교육관 건물로 이동하여 식사 하실 수 있습니다.😊</p>
-
-                <div id="foldableSection">
-                    <p style="font-family: 'Song Myung', serif; font-size: 15px;" class="toggle-button" onclick="toggleFoldable3()">층별 안내<span id="toggleIcon3">▼</span></p>
-                    <div class="foldable-content3" style="display: none;">
-                        <p style="font-family: 'Song Myung', serif; font-size: 10px;">성당 안내</p>
-                        <p style="font-family: 'Song Myung', serif; font-size: 12px;"><a class="no-style" href="https://bstsd.or.kr/wed">🍽</a></p>  
+                    <div class="foldable-content" style="display: none; margin-top: 1rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 10px;">
+                        <p>변정근 <a href="tel:01000000000"><i class="fa-solid fa-phone"></i></a> <a href="sms:01000000000"><i class="fa-solid fa-envelope"></i></a> <a href="#" onclick="groomsFatherAccountNumber(); return false;"><i class="fa-solid fa-comments-dollar"></i></a></p>
+                        <p>이덕희 <a href="tel:01000000000"><i class="fa-solid fa-phone"></i></a> <a href="sms:01000000000"><i class="fa-solid fa-envelope"></i></a></p>
                     </div>
                 </div>
-                <a class="btn btn-xl btn-light me-4" style="font-family: 'Song Myung', serif; font-size: 12px;" href="https://bstsd.or.kr/map">오시는 길</a>
-                <p style="font-family: 'Song Myung', serif; font-size: 18px;"><br>축하화환은 정중히 사양합니다.<br>화환 대신 축복미를 보내주시면 어려운 이웃들에게 보내겠습니다.💐<br></p>
+
+                <div class="couple-card fade-in">
+                    <img src="assets/img/jy.jpg" alt="신부" class="couple-photo">
+                    <h3 class="couple-name">신부 이민지</h3>
+                    <p class="couple-parents">이종후 · 진숙희의 차녀</p>
+                    <div class="contact-buttons">
+                        <a href="tel:01000000000" class="contact-btn">
+                            <i class="fa-solid fa-phone"></i> 연락하기
+                        </a>
+                        <a href="#" onclick="brideAccountNumber(); return false;" class="contact-btn">
+                            <i class="fa-solid fa-comments-dollar"></i> 계좌번호
+                        </a>
+                    </div>
+                    <div class="contact-buttons">
+                        <a href="#" onclick="toggleFoldable2(); return false;" class="contact-btn">
+                            <i class="fa-solid fa-users"></i> 혼주 연락처
+                        </a>
+                    </div>
+                    <div class="foldable-content2" style="display: none; margin-top: 1rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 10px;">
+                        <p>이종후 <a href="tel:01000000000"><i class="fa-solid fa-phone"></i></a> <a href="sms:01000000000"><i class="fa-solid fa-envelope"></i></a></p>
+                        <p>진숙희 <a href="tel:01000000000"><i class="fa-solid fa-phone"></i></a> <a href="sms:01000000000"><i class="fa-solid fa-envelope"></i></a></p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Map-->
-        <div class="form-group">
-            <div class="col-md-12">
-                <div class="my-3 text-center">
+        <!-- 갤러리 섹션 -->
+        <section class="gallery-section section">
+            <h2 class="section-title fade-in">갤러리</h2>
+            <div class="gallery-grid">
+                <a href="pages/studio.html" class="gallery-item fade-in">
+                    <img src="assets/img/main.jpg" alt="스튜디오 사진">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text">스튜디오 사진 보러가기<br><small>At IVE Studio</small></div>
+                    </div>
+                </a>
+                <a href="pages/self.html" class="gallery-item fade-in">
+                    <img src="assets/img/self-main.jpeg" alt="셀프 스냅">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text">셀프 스냅 사진 보러가기<br><small>Memories of 6 years</small></div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 정보 섹션 -->
+        <section class="info-section section">
+            <h2 class="section-title fade-in">결혼식 안내</h2>
+            <div class="info-card fade-in">
+                <h3 class="info-title">📅 2025.12.06 오후 3시</h3>
+                <p class="info-text">📍 흑석동성당</p>
+                <p class="info-text">성전 건너편 교육관 건물로 이동하여 식사 하실 수 있습니다. 😊</p>
+                <a href="https://bstsd.or.kr/map" class="map-btn">
+                    <i class="fa-solid fa-map-marker-alt"></i> 오시는 길
+                </a>
+            </div>
+            <div class="info-card fade-in">
+                <p class="info-text">💐 축하화환은 정중히 사양합니다.<br>화환 대신 축복미를 보내주시면 어려운 이웃들에게 보내겠습니다.</p>
+            </div>
+        </section>
+
+        <!-- 지도 섹션 -->
+        <section class="map-section section">
+            <div class="map-container">
+                <div class="map-buttons">
                     <a href="https://naver.me/5r98J2ff">
-                        <img alt="naver-map" class="map-icon" id="naver-map"
-                             src="assets/img/map/naver-map.png"/>
+                        <img src="assets/img/map/naver-map.png" alt="네이버 지도" class="map-icon">
                     </a>
                     <a href="https://kko.kakao.com/7wxaB9NrsS">
-                        <img alt="kakao-map" class="map-icon" id="kakao-map"
-                             src="assets/img/map/kakao-map.png"/>
+                        <img src="assets/img/map/kakao-map.png" alt="카카오 지도" class="map-icon">
                     </a>
                 </div>
-                <div class="my-3">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.9617566692764!2d126.95780507608751!3d37.508820127435285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca1e769ffa76b%3A0xf4d86228551bfbde!2z7LKc7KO86rWQIO2dkeyEneuPmSDshLHri7k!5e0!3m2!1sko!2skr!4v1756901808676!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.9617566692764!2d126.95780507608751!3d37.508820127435285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca1e769ffa76b%3A0xf4d86228551bfbde!2z7LKc7KO86rWQIO2dkeyEneuPmSDshLHri7k!5e0!3m2!1sko!2skr!4v1756901808676!5m2!1sko!2skr" class="map-iframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-        </div>
+        </section>
 
-        <!-- Footer-->
-        <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-        <footer class="footer text-center">
-            <div class="container px-4 px-lg-5">
-                <ul class="list-inline">
-                    <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white mr-5" title="카카오톡으로 공유하기" href="javascript:kakaoShare()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white mr-5" title="링크 복사하기" onclick="copyLink(); return false;" href="#!"><i class="fa-solid fa-link"></i></a>
-                    </li>
-                </ul>
-                <p class="text-muted small mb-0" style="font-family: 'Gowun Dodum', sans-serif;">Made By Toolbee</p>
+        <!-- 푸터 -->
+        <footer class="footer">
+            <div class="footer-buttons">
+                <a href="javascript:kakaoShare()" class="footer-btn" title="카카오톡으로 공유하기">
+                    <i class="fa-solid fa-share"></i> 공유하기
+                </a>
+                <a href="#" onclick="copyLink(); return false;" class="footer-btn" title="링크 복사하기">
+                    <i class="fa-solid fa-link"></i> 링크 복사
+                </a>
             </div>
+            <p style="font-size: 0.9rem; opacity: 0.8;">Made By Toolbee</p>
         </footer>
-       
+
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        
+        <script>
+            // 스크롤 애니메이션
+            function checkFadeIn() {
+                const elements = document.querySelectorAll('.fade-in');
+                elements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', checkFadeIn);
+            window.addEventListener('load', checkFadeIn);
+        </script>
     </body>
 </html>
