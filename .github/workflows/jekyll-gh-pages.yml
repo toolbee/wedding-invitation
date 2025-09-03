@@ -42,7 +42,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: wed-toolbee.github.io
+      url: 'https://toolbee.github.io/wedding-invitation'
     runs-on: ubuntu-latest
     needs: build
     steps:
