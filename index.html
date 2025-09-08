@@ -19,6 +19,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@300;400;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         
@@ -31,22 +32,27 @@
 
             body {
                 font-family: 'Noto Sans KR', sans-serif;
-                background: #f1ebe5;
-                color: #2c3e50;
+                background: #f8f8f8;
+                color: #333;
                 line-height: 1.6;
                 overflow-x: hidden;
             }
 
+            /* 메인 컨테이너 */
+            .main-container {
+                max-width: 600px;
+                margin: 0 auto;
+                background: white;
+                box-shadow: 0 0 20px rgba(0,0,0,0.1);
+                min-height: 100vh;
+            }
+
             /* 히어로 섹션 */
             .hero-section {
-                min-height: 100vh;
-                background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+                padding: 60px 40px;
                 text-align: center;
                 position: relative;
-                overflow: hidden;
             }
 
             .hero-section::before {
@@ -56,63 +62,54 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="stars" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="1" fill="%23568a35" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>');
-                opacity: 0.5;
+                background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="1" fill="%23568a35" opacity="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+                opacity: 0.3;
             }
 
             .hero-content {
                 position: relative;
                 z-index: 2;
-                color: #2c3e50;
-                max-width: 600px;
-                padding: 2rem;
-                animation: fadeInUp 1.5s ease-out;
+                color: #333;
             }
 
             .hero-title {
-                font-family: 'Noto Serif Display', serif;
-                font-size: 3rem;
-                font-weight: 300;
-                margin-bottom: 1rem;
+                font-family: 'Playfair Display', serif;
+                font-size: 2.8rem;
+                font-weight: 400;
+                margin-bottom: 20px;
                 color: #568a35;
-                letter-spacing: 2px;
+                letter-spacing: 1px;
             }
 
             .hero-subtitle {
                 font-family: 'Dancing Script', cursive;
-                font-size: 1.8rem;
-                margin-bottom: 2rem;
-                color: #6c757d;
+                font-size: 1.6rem;
+                margin-bottom: 30px;
+                color: #666;
             }
 
             .wedding-date {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
                 font-weight: 400;
-                margin-bottom: 1rem;
-                color: #495057;
+                margin-bottom: 15px;
+                color: #555;
                 font-family: 'Noto Serif Display', serif;
             }
 
             .wedding-location {
-                font-size: 1.1rem;
-                color: #6c757d;
+                font-size: 1rem;
+                color: #777;
                 font-weight: 300;
-            }
-
-            /* 섹션 공통 스타일 */
-            .section {
-                padding: 4rem 2rem;
-                position: relative;
             }
 
             .section-title {
-                font-family: 'Noto Serif Display', serif;
-                font-size: 2.5rem;
+                font-family: 'Playfair Display', serif;
+                font-size: 2rem;
                 text-align: center;
-                margin-bottom: 3rem;
+                margin-bottom: 40px;
                 color: #568a35;
+                font-weight: 400;
                 position: relative;
-                font-weight: 300;
             }
 
             .section-title::after {
@@ -121,7 +118,7 @@
                 bottom: -10px;
                 left: 50%;
                 transform: translateX(-50%);
-                width: 60px;
+                width: 50px;
                 height: 2px;
                 background: #568a35;
             }
@@ -129,111 +126,92 @@
             /* 성경 구절 섹션 */
             .bible-section {
                 background: white;
-                padding: 4rem 2rem;
+                padding: 50px 40px;
                 text-align: center;
-                border-bottom: 1px solid #e9ecef;
+                border-bottom: 1px solid #eee;
             }
 
             .bible-quote {
                 font-family: 'Noto Serif Display', serif;
-                font-size: 1.2rem;
+                font-size: 1.1rem;
                 line-height: 1.8;
-                color: #495057;
-                max-width: 600px;
-                margin: 0 auto;
-                position: relative;
+                color: #555;
                 font-weight: 300;
+                position: relative;
             }
 
             .bible-quote::before {
                 content: '🔑';
                 display: block;
-                font-size: 2rem;
-                margin-bottom: 1rem;
-                opacity: 0.7;
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+                opacity: 0.6;
             }
 
             .bible-reference {
                 font-size: 0.9rem;
-                color: #6c757d;
-                margin-top: 1rem;
+                color: #777;
+                margin-top: 20px;
                 font-style: italic;
             }
 
-            /* 소개 섹션 */
-            .intro-section {
-                background: white;
-                text-align: center;
-            }
-
-            .intro-text {
-                font-size: 1.1rem;
-                line-height: 1.8;
-                max-width: 800px;
-                margin: 0 auto;
-                color: #34495e;
-                font-weight: 300;
-            }
 
             /* 신랑신부 섹션 */
             .couple-section {
-                background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-                padding: 4rem 2rem;
+                background: #fafafa;
+                padding: 50px 40px;
             }
 
             .couple-container {
                 display: flex;
                 flex-direction: column;
-                gap: 3rem;
-                max-width: 600px;
-                margin: 0 auto;
+                gap: 30px;
             }
 
             .couple-card {
                 background: white;
-                border-radius: 15px;
-                padding: 2.5rem;
+                border-radius: 12px;
+                padding: 30px;
                 text-align: center;
-                box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-                border: 1px solid #e9ecef;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+                border: 1px solid #eee;
+                transition: transform 0.3s ease;
             }
 
             .couple-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+                transform: translateY(-3px);
             }
 
             .couple-photo {
-                width: 120px;
-                height: 120px;
+                width: 100px;
+                height: 100px;
                 border-radius: 50%;
                 object-fit: cover;
-                border: 3px solid #568a35;
-                margin: 0 auto 1.5rem;
-                box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+                border: 2px solid #568a35;
+                margin: 0 auto 20px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             }
 
             .couple-name {
                 font-family: 'Noto Serif Display', serif;
-                font-size: 1.8rem;
-                margin-bottom: 0.5rem;
-                color: #2c3e50;
-                font-weight: 300;
+                font-size: 1.5rem;
+                margin-bottom: 8px;
+                color: #333;
+                font-weight: 400;
             }
 
             .couple-parents {
-                font-size: 1rem;
-                color: #6c757d;
-                margin-bottom: 1rem;
-                font-weight: 400;
+                font-size: 0.9rem;
+                color: #666;
+                margin-bottom: 20px;
+                font-weight: 300;
             }
 
             .contact-buttons {
                 display: flex;
                 justify-content: center;
-                gap: 1rem;
-                margin-top: 1.5rem;
+                gap: 10px;
+                margin-top: 20px;
                 flex-wrap: wrap;
             }
 
@@ -241,228 +219,201 @@
                 background: #568a35;
                 border: none;
                 color: white;
-                padding: 0.8rem 1.5rem;
-                border-radius: 25px;
+                padding: 8px 16px;
+                border-radius: 20px;
                 text-decoration: none;
                 transition: all 0.3s ease;
-                font-size: 0.9rem;
-                font-weight: 500;
+                font-size: 0.85rem;
+                font-weight: 400;
             }
 
             .contact-btn:hover {
                 background: #4a7c2e;
-                transform: translateY(-2px);
+                transform: translateY(-1px);
                 color: white;
                 text-decoration: none;
-                box-shadow: 0 3px 10px rgba(86, 138, 53, 0.3);
+                box-shadow: 0 2px 8px rgba(86, 138, 53, 0.3);
             }
 
             .foldable-content {
                 background: #f8f9fa;
-                border-radius: 10px;
-                margin-top: 1rem;
-                padding: 1rem;
-                border: 1px solid #e9ecef;
-                font-size: 0.9rem;
-                color: #495057;
+                border-radius: 8px;
+                margin-top: 15px;
+                padding: 15px;
+                border: 1px solid #eee;
+                font-size: 0.85rem;
+                color: #555;
             }
 
             /* 갤러리 섹션 */
             .gallery-section {
-                background: #f8f9fa;
-                padding: 4rem 2rem;
+                background: white;
+                padding: 50px 40px;
             }
 
             .gallery-grid {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 2rem;
-                max-width: 600px;
-                margin: 0 auto;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
             }
 
             .gallery-item {
                 position: relative;
-                border-radius: 15px;
+                border-radius: 8px;
                 overflow: hidden;
-                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
                 transition: transform 0.3s ease;
                 background: white;
             }
 
             .gallery-item:hover {
-                transform: translateY(-5px);
+                transform: translateY(-2px);
             }
 
             .gallery-item img {
                 width: 100%;
-                height: 250px;
+                height: 200px;
                 object-fit: cover;
             }
 
-            .gallery-overlay {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: linear-gradient(rgba(86, 138, 53, 0.8), rgba(86, 138, 53, 0.9));
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-            }
-
-            .gallery-item:hover .gallery-overlay {
-                opacity: 1;
-            }
-
-            .gallery-text {
-                color: white;
-                text-align: center;
-                font-size: 1.2rem;
-                font-weight: 500;
-            }
-
-            /* 정보 섹션 */
+            /* 결혼식 정보 섹션 */
             .info-section {
-                background: white;
-                padding: 4rem 2rem;
+                background: #fafafa;
+                padding: 50px 40px;
                 text-align: center;
             }
 
             .info-card {
-                background: #f8f9fa;
-                border-radius: 15px;
-                padding: 2rem;
-                margin: 2rem auto;
-                max-width: 600px;
-                border: 1px solid #e9ecef;
+                background: white;
+                border-radius: 12px;
+                padding: 30px;
+                margin: 20px 0;
+                border: 1px solid #eee;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             }
 
             .info-title {
-                font-size: 1.5rem;
-                margin-bottom: 1rem;
-                font-weight: 600;
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+                font-weight: 400;
                 color: #568a35;
                 font-family: 'Noto Serif Display', serif;
-                font-weight: 300;
             }
 
             .info-text {
-                font-size: 1.1rem;
+                font-size: 1rem;
                 line-height: 1.6;
-                margin-bottom: 1.5rem;
-                color: #495057;
+                margin-bottom: 20px;
+                color: #555;
             }
 
             .transport-info {
-                background: white;
-                border-radius: 10px;
-                padding: 1.5rem;
-                margin: 1rem 0;
+                background: #f8f9fa;
+                border-radius: 8px;
+                padding: 20px;
+                margin: 20px 0;
                 text-align: left;
-                border: 1px solid #e9ecef;
+                border: 1px solid #eee;
             }
 
             .transport-title {
-                font-weight: 600;
+                font-weight: 500;
                 color: #568a35;
-                margin-bottom: 0.5rem;
+                margin-bottom: 10px;
                 display: flex;
                 align-items: center;
-                gap: 0.5rem;
+                gap: 8px;
+                font-size: 0.95rem;
             }
 
             .transport-detail {
-                color: #6c757d;
-                font-size: 0.95rem;
-                margin-bottom: 0.5rem;
+                color: #666;
+                font-size: 0.9rem;
+                margin-bottom: 8px;
             }
 
             .map-btn {
                 background: #568a35;
                 border: none;
                 color: white;
-                padding: 1rem 2rem;
-                border-radius: 25px;
+                padding: 12px 24px;
+                border-radius: 20px;
                 text-decoration: none;
                 display: inline-block;
-                margin: 1rem;
+                margin: 15px;
                 transition: all 0.3s ease;
-                font-weight: 500;
+                font-weight: 400;
             }
 
             .map-btn:hover {
                 background: #4a7c2e;
-                transform: translateY(-2px);
+                transform: translateY(-1px);
                 color: white;
                 text-decoration: none;
-                box-shadow: 0 3px 10px rgba(86, 138, 53, 0.3);
+                box-shadow: 0 2px 8px rgba(86, 138, 53, 0.3);
             }
 
             /* 지도 섹션 */
             .map-section {
                 background: white;
-                padding: 2rem;
+                padding: 40px;
             }
 
             .map-container {
-                max-width: 600px;
-                margin: 0 auto;
+                max-width: 100%;
             }
 
             .map-buttons {
                 display: flex;
                 justify-content: center;
-                gap: 1rem;
-                margin-bottom: 2rem;
+                gap: 15px;
+                margin-bottom: 25px;
                 flex-wrap: wrap;
             }
 
             .map-icon {
-                width: 60px;
-                height: 60px;
-                border-radius: 15px;
-                box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+                width: 50px;
+                height: 50px;
+                border-radius: 10px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
                 transition: transform 0.3s ease;
             }
 
             .map-icon:hover {
-                transform: scale(1.1);
+                transform: scale(1.05);
             }
 
             .map-iframe {
                 width: 100%;
-                height: 300px;
-                border-radius: 15px;
-                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                height: 250px;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             }
 
             /* 푸터 */
             .footer {
-                background: #2c3e50;
+                background: #333;
                 color: white;
                 text-align: center;
-                padding: 2rem;
+                padding: 30px 40px;
             }
 
             .footer-buttons {
                 display: flex;
                 justify-content: center;
-                gap: 1rem;
-                margin-bottom: 1rem;
+                gap: 15px;
+                margin-bottom: 20px;
             }
 
             .footer-btn {
                 background: rgba(255,255,255,0.1);
                 border: 1px solid rgba(255,255,255,0.2);
                 color: white;
-                padding: 0.8rem 1.5rem;
-                border-radius: 25px;
+                padding: 8px 16px;
+                border-radius: 20px;
                 text-decoration: none;
                 transition: all 0.3s ease;
+                font-size: 0.9rem;
             }
 
             .footer-btn:hover {
@@ -485,24 +436,31 @@
 
             /* 반응형 디자인 */
             @media (max-width: 768px) {
+                .main-container {
+                    margin: 0;
+                    box-shadow: none;
+                }
+
+                .hero-section,
+                .bible-section,
+                .couple-section,
+                .gallery-section,
+                .info-section,
+                .map-section,
+                .footer {
+                    padding: 30px 20px;
+                }
+
                 .hero-title {
                     font-size: 2.2rem;
                 }
 
                 .hero-subtitle {
-                    font-size: 1.4rem;
-                }
-
-                .section {
-                    padding: 2rem 1rem;
+                    font-size: 1.3rem;
                 }
 
                 .section-title {
-                    font-size: 1.8rem;
-                }
-
-                .couple-container {
-                    gap: 2rem;
+                    font-size: 1.6rem;
                 }
 
                 .gallery-grid {
@@ -523,7 +481,7 @@
             /* 스크롤 애니메이션 */
             .fade-in {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
                 transition: all 0.6s ease;
             }
 
@@ -534,15 +492,16 @@
         </style>
     </head>
     <body>
-        <!-- 히어로 섹션 -->
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1 class="hero-title">지훈 & 민지</h1>
-                <p class="hero-subtitle">We're getting married</p>
-                <div class="wedding-date">2025년 12월 6일 토요일 오후 3시</div>
-                <div class="wedding-location">흑석동성당 내 카나의 혼인성당 2층</div>
-            </div>
-        </section>
+        <div class="main-container">
+            <!-- 히어로 섹션 -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">지훈 & 민지</h1>
+                    <p class="hero-subtitle">We're getting married</p>
+                    <div class="wedding-date">2025년 12월 6일 토요일 오후 3시</div>
+                    <div class="wedding-location">흑석동성당 내 카나의 혼인성당 2층</div>
+                </div>
+            </section>
 
         <!-- 성경 구절 섹션 -->
         <section class="bible-section">
@@ -688,18 +647,19 @@
             </div>
         </section>
 
-        <!-- 푸터 -->
-        <footer class="footer">
-            <div class="footer-buttons">
-                <a href="javascript:kakaoShare()" class="footer-btn" title="카카오톡으로 공유하기">
-                    <i class="fa-solid fa-share"></i> 공유하기
-                </a>
-                <a href="#" onclick="copyLink(); return false;" class="footer-btn" title="링크 복사하기">
-                    <i class="fa-solid fa-link"></i> 링크 복사
-                </a>
-            </div>
-            <p style="font-size: 0.9rem; opacity: 0.8;">Made By Toolbee</p>
-        </footer>
+            <!-- 푸터 -->
+            <footer class="footer">
+                <div class="footer-buttons">
+                    <a href="javascript:kakaoShare()" class="footer-btn" title="카카오톡으로 공유하기">
+                        <i class="fa-solid fa-share"></i> 공유하기
+                    </a>
+                    <a href="#" onclick="copyLink(); return false;" class="footer-btn" title="링크 복사하기">
+                        <i class="fa-solid fa-link"></i> 링크 복사
+                    </a>
+                </div>
+                <p style="font-size: 0.9rem; opacity: 0.8;">Made By Toolbee</p>
+            </footer>
+        </div>
 
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
