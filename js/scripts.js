@@ -94,11 +94,11 @@ function fallbackCopyTextToClipboard(text) {
 
 // 신부 계좌번호 복사 (개선된 버전)
 function brideAccountNumber() {
-    const brideAccount = '00000000 카카오뱅크';
+    const brideAccount = '490702-01-141125 (KB국민은행)';
     
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(brideAccount).then(() => {
-            showNotification('신부의 계좌번호가 복사되었습니다.\n00000000 카카오뱅크', 'success');
+            showNotification('신부의 계좌번호가 복사되었습니다.\n490702-01-141125 (KB국민은행)', 'success');
         }).catch(() => {
             fallbackCopyTextToClipboard(brideAccount);
         });
@@ -109,11 +109,11 @@ function brideAccountNumber() {
 
 // 신랑 계좌번호 복사 (개선된 버전)
 function groomAccountNumber() {
-    const groomAccount = '00000000 카카오뱅크';
+    const groomAccount = 'n490702-01-141125 (KB국민은행)';
     
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(groomAccount).then(() => {
-            showNotification('신랑의 계좌번호가 복사되었습니다.\n00000000 카카오뱅크', 'success');
+            showNotification('신랑의 계좌번호가 복사되었습니다.\n490702-01-141125 (KB국민은행)', 'success');
         }).catch(() => {
             fallbackCopyTextToClipboard(groomAccount);
         });
@@ -134,6 +134,51 @@ function groomsFatherAccountNumber() {
         });
     } else {
         fallbackCopyTextToClipboard(groomsFatherAccount);
+    }
+}
+
+// 신랑 어머님 계좌번호 복사 (개선된 버전)
+function groomsMotherAccountNumber() {
+    const groomsMotherAccount = '00000000';
+    
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(groomsMotherAccount).then(() => {
+            showNotification('계좌번호가 복사되었습니다.\n' + groomsMotherAccount, 'success');
+        }).catch(() => {
+            fallbackCopyTextToClipboard(groomsMotherAccount);
+        });
+    } else {
+        fallbackCopyTextToClipboard(groomsMotherAccount);
+    }
+}
+
+// 신부 아버님 계좌번호 복사 (개선된 버전)
+function bridesFatherAccountNumber() {
+    const bridesFatherAccount = '00000000';
+    
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(bridesFatherAccount).then(() => {
+            showNotification('계좌번호가 복사되었습니다.\n' + bridesFatherAccount, 'success');
+        }).catch(() => {
+            fallbackCopyTextToClipboard(bridesFatherAccount);
+        });
+    } else {
+        fallbackCopyTextToClipboard(bridesFatherAccount);
+    }
+}
+
+// 신부 어머님 계좌번호 복사 (개선된 버전)
+function bridesMotherAccountNumber() {
+    const bridesMotherAccount = '00000000';
+    
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(bridesMotherAccount).then(() => {
+            showNotification('계좌번호가 복사되었습니다.\n' + bridesMotherAccount, 'success');
+        }).catch(() => {
+            fallbackCopyTextToClipboard(bridesMotherAccount);
+        });
+    } else {
+        fallbackCopyTextToClipboard(bridesMotherAccount);
     }
 }
 
@@ -240,30 +285,30 @@ function kakaoShare() {
 // 카카오 공유 초기화 및 실행
 function initKakaoShare() {
     try {
-        Kakao.init('YOUR APP KEY');
+    Kakao.init('YOUR APP KEY');
         
         if (Kakao.isInitialized()) {
-            Kakao.Share.sendDefault({
-                objectType: 'feed',
-                content: {
+    Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: {
                     title: '지훈🤍민지 결혼합니다.',
                     description: '2025.12.06 오후 3시\n흑석동성당',
-                    imageUrl: 'https://github.com/jaeyun95/jaeyun95.github.io/blob/main/assets/img/main.jpg?raw=true',
-                    link: {
+        imageUrl: 'https://github.com/jaeyun95/jaeyun95.github.io/blob/main/assets/img/main.jpg?raw=true',
+        link: {
                         mobileWebUrl: window.location.href,
                         webUrl: window.location.href,
-                    },
-                },
-                buttons: [
-                    {
-                        title: '모바일 청첩장 보기',
-                        link: {
+        },
+        },
+        buttons: [
+        {
+            title: '모바일 청첩장 보기',
+            link: {
                             mobileWebUrl: window.location.href,
                             webUrl: window.location.href,
-                        },
-                    },
-                ],
-                installTalk: true,
+            },
+        },
+        ],
+        installTalk: true,
             });
         } else {
             showNotification('카카오톡 공유를 초기화할 수 없습니다.', 'error');
@@ -277,7 +322,7 @@ function initKakaoShare() {
 function toggleFoldable() {
     const content = document.querySelector('.foldable-content');
     const button = document.querySelector('[onclick="toggleFoldable(); return false;"]');
-    
+
     if (content.style.display === 'none' || !content.style.display) {
         content.style.display = 'block';
         content.style.animation = 'slideDown 0.3s ease-out';
@@ -287,7 +332,7 @@ function toggleFoldable() {
     } else {
         content.style.animation = 'slideUp 0.3s ease-out';
         setTimeout(() => {
-            content.style.display = 'none';
+        content.style.display = 'none';
         }, 300);
         if (button) {
             button.innerHTML = '<i class="fa-solid fa-users"></i> 혼주 연락처 <i class="fa-solid fa-chevron-down"></i>';
@@ -298,7 +343,7 @@ function toggleFoldable() {
 function toggleFoldable2() {
     const content = document.querySelector('.foldable-content2');
     const button = document.querySelector('[onclick="toggleFoldable2(); return false;"]');
-    
+
     if (content.style.display === 'none' || !content.style.display) {
         content.style.display = 'block';
         content.style.animation = 'slideDown 0.3s ease-out';
@@ -308,7 +353,7 @@ function toggleFoldable2() {
     } else {
         content.style.animation = 'slideUp 0.3s ease-out';
         setTimeout(() => {
-            content.style.display = 'none';
+        content.style.display = 'none';
         }, 300);
         if (button) {
             button.innerHTML = '<i class="fa-solid fa-users"></i> 혼주 연락처 <i class="fa-solid fa-chevron-down"></i>';
