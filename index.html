@@ -280,14 +280,79 @@
                 box-shadow: 0 2px 8px rgba(86, 138, 53, 0.3);
             }
 
-            .foldable-content {
-                background: #f8f9fa;
-                border-radius: 8px;
-                margin-top: 15px;
-                padding: 15px;
-                border: 1px solid #eee;
-                font-size: 0.85rem;
-                color: #555;
+            .foldable-content,
+            .foldable-content2 {
+                background: linear-gradient(135deg, #f9fafb 0%, #f5f6f7 100%);
+                border-radius: 12px;
+                margin-top: 18px;
+                padding: 0;
+                border: 1px solid #e5e7eb;
+                font-size: 0.9rem;
+                color: #374151;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+                overflow: hidden;
+            }
+            
+            .foldable-content p,
+            .foldable-content2 p {
+                padding: 16px 20px;
+                margin: 0;
+                border-bottom: 1px solid #e5e7eb;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                transition: background-color 0.2s ease;
+            }
+            
+            .foldable-content p:last-child,
+            .foldable-content2 p:last-child {
+                border-bottom: none;
+            }
+            
+            .foldable-content p:hover,
+            .foldable-content2 p:hover {
+                background-color: #f3f4f6;
+            }
+            
+            .foldable-content a,
+            .foldable-content2 a {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                color: #568a35;
+                text-decoration: none;
+                padding: 6px 12px;
+                border-radius: 6px;
+                transition: all 0.2s ease;
+                margin-left: 8px;
+            }
+            
+            .foldable-content a:hover,
+            .foldable-content2 a:hover {
+                background-color: rgba(86, 138, 53, 0.1);
+                color: #4a7c2e;
+                transform: translateY(-1px);
+            }
+            
+            .foldable-content i,
+            .foldable-content2 i {
+                font-size: 1rem;
+                width: 18px;
+                text-align: center;
+            }
+            
+            .foldable-content strong,
+            .foldable-content2 strong {
+                color: #1f2937;
+                font-weight: 600;
+                min-width: 80px;
+            }
+            
+            .foldable-content span,
+            .foldable-content2 span {
+                display: flex;
+                gap: 6px;
+                align-items: center;
             }
 
             /* 갤러리 섹션 */
@@ -601,8 +666,22 @@
                         </a>
                     </div>
                     <div class="foldable-content" style="display: none;">
-                        <p>부 변정근<a href="tel:01039044335"><i class="fa-solid fa-phone"></i></a> <a href="sms:01039044335"><i class="fa-solid fa-envelope"></i></a> <a href="#" onclick="groomsFatherAccountNumber(); return false;"><i class="fa-solid fa-comments-dollar"></i></a></p>
-                        <p>모 이덕희<a href="tel:01048165037"><i class="fa-solid fa-phone"></i></a> <a href="sms:01048165037"><i class="fa-solid fa-envelope"></i></a> <a href="#" onclick="groomsMotherAccountNumber(); return false;"><i class="fa-solid fa-comments-dollar"></i></a></p>
+                        <p>
+                            <strong>부 변정근</strong>
+                            <span>
+                                <a href="tel:01039044335" title="전화"><i class="fa-solid fa-phone"></i></a>
+                                <a href="sms:01039044335" title="문자"><i class="fa-solid fa-envelope"></i></a>
+                                <a href="#" onclick="groomsFatherAccountNumber(); return false;" title="계좌번호"><i class="fa-solid fa-comments-dollar"></i></a>
+                            </span>
+                        </p>
+                        <p>
+                            <strong>모 이덕희</strong>
+                            <span>
+                                <a href="tel:01048165037" title="전화"><i class="fa-solid fa-phone"></i></a>
+                                <a href="sms:01048165037" title="문자"><i class="fa-solid fa-envelope"></i></a>
+                                <a href="#" onclick="groomsMotherAccountNumber(); return false;" title="계좌번호"><i class="fa-solid fa-comments-dollar"></i></a>
+                            </span>
+                        </p>
                     </div>
                 </div>
 
@@ -623,8 +702,22 @@
                         </a>
                     </div>
                     <div class="foldable-content2" style="display: none;">
-                        <p>부 이종후<a href="tel:01000000000"><i class="fa-solid fa-phone"></i></a> <a href="sms:01000000000"><i class="fa-solid fa-envelope"></i></a> <a href="#" onclick="bridesFatherAccountNumber(); return false;"><i class="fa-solid fa-comments-dollar"></i></a></p>
-                        <p>모 진숙희<a href="tel:01036126476"><i class="fa-solid fa-phone"></i></a> <a href="sms:01000000000"><i class="fa-solid fa-envelope"></i></a> <a href="#" onclick="bridesMotherAccountNumber(); return false;"><i class="fa-solid fa-comments-dollar"></i></a></p>
+                        <p>
+                            <strong>부 이종후</strong>
+                            <span>
+                                <a href="tel:01000000000" title="전화"><i class="fa-solid fa-phone"></i></a>
+                                <a href="sms:01000000000" title="문자"><i class="fa-solid fa-envelope"></i></a>
+                                <a href="#" onclick="bridesFatherAccountNumber(); return false;" title="계좌번호"><i class="fa-solid fa-comments-dollar"></i></a>
+                            </span>
+                        </p>
+                        <p>
+                            <strong>모 진숙희</strong>
+                            <span>
+                                <a href="tel:01036126476" title="전화"><i class="fa-solid fa-phone"></i></a>
+                                <a href="sms:01000000000" title="문자"><i class="fa-solid fa-envelope"></i></a>
+                                <a href="#" onclick="bridesMotherAccountNumber(); return false;" title="계좌번호"><i class="fa-solid fa-comments-dollar"></i></a>
+                            </span>
+                        </p>
                     </div>
                 </div>
             </div>
