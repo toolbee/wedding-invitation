@@ -109,7 +109,7 @@ function brideAccountNumber() {
 
 // 신랑 계좌번호 복사 (개선된 버전)
 function groomAccountNumber() {
-    const groomAccount = 'n490702-01-141125 (KB국민은행)';
+    const groomAccount = '490702-01-141125 (KB국민은행)';
     
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(groomAccount).then(() => {
@@ -439,16 +439,18 @@ document.addEventListener('touchmove', function() {}, {passive: true});
 // 갤러리 모달 기능
 let currentGalleryIndex = 0;
 const galleryImages = [
-    'assets/img/NGT00024-3.jpg',
-    'assets/img/NGT00077-3.jpg',
-    'assets/img/NGT00109-1.jpg',
+    'assets/img/NGT00036-3.jpg',
     'assets/img/NGT00171-3.jpg',
-    'assets/img/NGT00259-3.jpg',
+    'assets/img/NGT00194-3.jpg',
+    'assets/img/NGT00550-1.jpg',
+    'assets/img/NGT00566-3.jpg',
     'assets/img/NGT00622-4.jpg',
-    'assets/img/NGT00668-3.jpg',
-    'assets/img/NGT00732-4.jpg',
     'assets/img/NGT00860-3.jpg',
-    'assets/img/NGT01000-3.jpg'
+    'assets/img/NGT01006-3.jpg',
+    'assets/img/NGT01073-3.jpg',
+    'assets/img/NGT01308-2.jpg',
+    'assets/img/NGT01431-3.jpg',
+    'assets/img/NGT01673-3.jpg'
 ];
 
 function openGalleryModal(index) {

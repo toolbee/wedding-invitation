@@ -274,7 +274,7 @@
                 justify-content: center;
                 gap: 10px;
                 margin-top: 20px;
-                flex-wrap: wrap;
+                flex-wrap: nowrap;
             }
 
             .contact-btn {
@@ -285,8 +285,12 @@
                 border-radius: 0;
                 text-decoration: none;
                 transition: all 0.3s ease;
-                font-size: 0.85rem;
+                font-size: 0.8rem;
                 font-weight: 400;
+                white-space: nowrap;
+                flex-shrink: 0;
+                min-width: 120px;
+                text-align: center;
             }
 
             .contact-btn:hover {
@@ -642,33 +646,61 @@
 
             .map-container {
                 max-width: 100%;
-            }
-
-            .map-buttons {
-                display: flex;
-                justify-content: center;
-                gap: 15px;
-                margin-bottom: 25px;
-                flex-wrap: wrap;
-            }
-
-            .map-icon {
-                width: 50px;
-                height: 50px;
+                position: relative;
                 border-radius: 0;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-                transition: transform 0.3s ease;
-            }
-
-            .map-icon:hover {
-                transform: scale(1.05);
+                overflow: hidden;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             }
 
             .map-iframe {
                 width: 100%;
                 height: 250px;
                 border-radius: 0;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                display: block;
+                border: none;
+            }
+
+            .map-buttons {
+                display: flex;
+                width: 100%;
+                background: #f5f5f5;
+                border-top: 1px solid #ddd;
+                margin: 0;
+                padding: 0;
+            }
+
+            .map-button-item {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                padding: 12px 16px;
+                background: transparent;
+                border: none;
+                border-right: 1px solid #ddd;
+                text-decoration: none;
+                color: #333;
+                font-size: 0.9rem;
+                transition: background-color 0.2s ease;
+                cursor: pointer;
+            }
+
+            .map-button-item:last-child {
+                border-right: none;
+            }
+
+            .map-button-item:hover {
+                background: #e8e8e8;
+                text-decoration: none;
+                color: #333;
+            }
+
+            .map-icon {
+                width: 24px;
+                height: 24px;
+                object-fit: contain;
+                flex-shrink: 0;
             }
 
             /* 푸터 */
@@ -684,23 +716,197 @@
                 justify-content: center;
                 gap: 15px;
                 margin-bottom: 20px;
+                flex-wrap: nowrap;
             }
 
             .footer-btn {
                 background: rgba(255,255,255,0.1);
                 border: 1px solid rgba(255,255,255,0.2);
                 color: white;
-                padding: 8px 16px;
+                padding: 8px 12px;
                 border-radius: 0;
                 text-decoration: none;
                 transition: all 0.3s ease;
+                font-size: 0.85rem;
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+
+            /* 마음 전하실 곳 섹션 */
+            .account-section {
+                background: #fafafa;
+                padding: 35px 40px;
+            }
+
+            .account-title {
+                font-family: 'GounBatang', serif;
+                font-size: 1.8rem;
+                text-align: center;
+                margin-bottom: 25px;
+                color: #568a35;
+                font-weight: 700;
+            }
+
+            .account-folder {
+                background: white;
+                border: 1px solid #eee;
+                margin-bottom: 12px;
+                overflow: hidden;
+                transition: all 0.3s ease;
+            }
+
+            .account-folder-header {
+                padding: 18px 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+                font-weight: 500;
+                color: #333;
+                font-size: 1rem;
+            }
+
+            .account-folder-header:hover {
+                background: #fafafa;
+            }
+
+            .account-folder-content {
+                display: none;
+                padding: 0;
+                background: white;
+            }
+
+            .account-folder.active .account-folder-content {
+                display: block;
+            }
+
+            .account-item {
+                padding: 16px 20px;
+                border-bottom: 1px solid #eee;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .account-item:last-child {
+                border-bottom: none;
+            }
+
+            .account-info {
+                flex: 1;
+            }
+
+            .account-bank {
+                font-weight: 600;
+                color: #333;
+                font-size: 0.95rem;
+                margin-bottom: 4px;
+            }
+
+            .account-number {
+                color: #666;
                 font-size: 0.9rem;
             }
 
-            .footer-btn:hover {
-                background: rgba(255,255,255,0.2);
-                color: white;
+            .account-name {
+                color: #888;
+                font-size: 0.85rem;
+                margin-top: 4px;
+            }
+
+            .account-copy-btn {
+                background: #f5f5f5;
+                border: 1px solid #ddd;
+                padding: 6px 12px;
+                border-radius: 0;
+                cursor: pointer;
+                font-size: 0.8rem;
+                color: #666;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                transition: all 0.2s ease;
+                flex-shrink: 0;
+            }
+
+            .account-copy-btn:hover {
+                background: #e8e8e8;
+                color: #333;
+            }
+
+            .account-copy-btn i {
+                font-size: 0.75rem;
+            }
+
+            /* 공유 섹션 */
+            .share-section {
+                background: white;
+                padding: 30px 40px;
+                text-align: center;
+            }
+
+            .share-item {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+                padding: 14px 0;
+                color: #333;
                 text-decoration: none;
+                font-size: 0.95rem;
+                transition: opacity 0.2s ease;
+            }
+
+            .share-item:hover {
+                opacity: 0.7;
+                text-decoration: none;
+                color: #333;
+            }
+
+            .share-item i {
+                font-size: 1.2rem;
+            }
+
+            .kakao-icon {
+                width: 24px;
+                height: 24px;
+                background: #FEE500;
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #3C1E1E;
+                font-weight: bold;
+                font-size: 0.7rem;
+            }
+
+            @media (max-width: 768px) {
+                .account-section,
+                .share-section {
+                    padding: 25px 20px;
+                }
+            }
+
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+
+            @keyframes slideOutRight {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
             }
 
             /* 애니메이션 */
@@ -730,7 +936,8 @@
                 .couple-section,
                 .gallery-section,
                 .info-section,
-                .map-section,
+                .account-section,
+                .share-section,
                 .footer {
                     padding: 25px 20px;
                 }
@@ -751,18 +958,26 @@
                     font-size: 1.6rem;
                 }
 
-                .gallery-grid {
-                    grid-template-columns: 1fr;
+                .contact-buttons {
+                    gap: 8px;
                 }
 
-                .contact-buttons {
-                    flex-direction: column;
-                    align-items: center;
+                .contact-btn {
+                    padding: 6px 10px;
+                    font-size: 0.75rem;
                 }
 
                 .map-buttons {
-                    flex-direction: column;
-                    align-items: center;
+                    gap: 10px;
+                }
+
+                .footer-buttons {
+                    gap: 10px;
+                }
+
+                .footer-btn {
+                    padding: 6px 10px;
+                    font-size: 0.8rem;
                 }
             }
 
@@ -815,8 +1030,8 @@
                 모든 것을 바라고<br>
                 모든 것을 견디어 냅니다.
                 <div class="bible-reference">(1코린 13,7)</div><br>
-                서로의 믿음과 사랑으로 오랜시간을 함께 걸어온 두 사람이<br>
-                이제 하느님 안에서 한마음으로 새로운 여정을 시작하려 합니다.
+                서로의 믿음과 사랑으로,<br>오랜시간을 함께 걸어온 두 사람이<br>
+                이제 한마음으로 새로운 여정을 시작합니다.
             </div>
         </section>
 
@@ -831,9 +1046,6 @@
                         <a href="tel:01075126476" class="contact-btn">
                             <i class="fa-solid fa-phone"></i> 연락하기
                         </a>
-                        <a href="#" onclick="groomAccountNumber(); return false;" class="contact-btn">
-                            <i class="fa-solid fa-comments-dollar"></i> 계좌번호
-                        </a>
                     </div>
                     <div class="contact-buttons">
                         <a href="#" onclick="toggleFoldable(); return false;" class="contact-btn">
@@ -846,7 +1058,6 @@
                             <span>
                                 <a href="tel:01039044335" title="전화"><i class="fa-solid fa-phone"></i></a>
                                 <a href="sms:01039044335" title="문자"><i class="fa-solid fa-envelope"></i></a>
-                                <a href="#" onclick="groomsFatherAccountNumber(); return false;" title="계좌번호"><i class="fa-solid fa-comments-dollar"></i></a>
                             </span>
                         </p>
                         <p>
@@ -854,7 +1065,6 @@
                             <span>
                                 <a href="tel:01048165037" title="전화"><i class="fa-solid fa-phone"></i></a>
                                 <a href="sms:01048165037" title="문자"><i class="fa-solid fa-envelope"></i></a>
-                                <a href="#" onclick="groomsMotherAccountNumber(); return false;" title="계좌번호"><i class="fa-solid fa-comments-dollar"></i></a>
                             </span>
                         </p>
                     </div>
@@ -867,10 +1077,7 @@
                         <a href="tel:01071266476" class="contact-btn">
                             <i class="fa-solid fa-phone"></i> 연락하기
                         </a>
-                        <a href="#" onclick="brideAccountNumber(); return false;" class="contact-btn">
-                            <i class="fa-solid fa-comments-dollar"></i> 계좌번호
-                        </a>
-                                </div>
+                    </div>
                     <div class="contact-buttons">
                         <a href="#" onclick="toggleFoldable2(); return false;" class="contact-btn">
                             <i class="fa-solid fa-users"></i> 혼주 연락처
@@ -882,7 +1089,6 @@
                             <span>
                                 <a href="tel:01081126476" title="전화"><i class="fa-solid fa-phone"></i></a>
                                 <a href="sms:01081126476" title="문자"><i class="fa-solid fa-envelope"></i></a>
-                                <a href="#" onclick="bridesFatherAccountNumber(); return false;" title="계좌번호"><i class="fa-solid fa-comments-dollar"></i></a>
                             </span>
                         </p>
                         <p>
@@ -890,7 +1096,6 @@
                             <span>
                                 <a href="tel:01036126476" title="전화"><i class="fa-solid fa-phone"></i></a>
                                 <a href="sms:01036126476" title="문자"><i class="fa-solid fa-envelope"></i></a>
-                                <a href="#" onclick="bridesMotherAccountNumber(); return false;" title="계좌번호"><i class="fa-solid fa-comments-dollar"></i></a>
                             </span>
                         </p>
                     </div>
@@ -903,34 +1108,40 @@
             <h2 class="section-title fade-in">갤러리</h2>
             <div class="gallery-grid">
                 <div class="gallery-item" onclick="openGalleryModal(0)">
-                    <img src="assets/img/NGT00024-3.jpg" alt="갤러리">
+                    <img src="assets/img/NGT00036-3.jpg" alt="갤러리">
                 </div>
                 <div class="gallery-item" onclick="openGalleryModal(1)">
-                    <img src="assets/img/NGT00077-3.jpg" alt="갤러리">
-                </div>
-                <div class="gallery-item" onclick="openGalleryModal(2)">
-                    <img src="assets/img/NGT00109-1.jpg" alt="갤러리">
-                </div>
-                <div class="gallery-item" onclick="openGalleryModal(3)">
                     <img src="assets/img/NGT00171-3.jpg" alt="갤러리">
                 </div>
+                <div class="gallery-item" onclick="openGalleryModal(2)">
+                    <img src="assets/img/NGT00194-3.jpg" alt="갤러리">
+                </div>
+                <div class="gallery-item" onclick="openGalleryModal(3)">
+                    <img src="assets/img/NGT00550-1.jpg" alt="갤러리">
+                </div>
                 <div class="gallery-item" onclick="openGalleryModal(4)">
-                    <img src="assets/img/NGT00259-3.jpg" alt="갤러리">
+                    <img src="assets/img/NGT00566-3.jpg" alt="갤러리">
                 </div>
                 <div class="gallery-item" onclick="openGalleryModal(5)">
                     <img src="assets/img/NGT00622-4.jpg" alt="갤러리">
                 </div>
                 <div class="gallery-item" onclick="openGalleryModal(6)">
-                    <img src="assets/img/NGT00668-3.jpg" alt="갤러리">
-                </div>
-                <div class="gallery-item" onclick="openGalleryModal(7)">
-                    <img src="assets/img/NGT00732-4.jpg" alt="갤러리">
-                </div>
-                <div class="gallery-item" onclick="openGalleryModal(8)">
                     <img src="assets/img/NGT00860-3.jpg" alt="갤러리">
                 </div>
+                <div class="gallery-item" onclick="openGalleryModal(7)">
+                    <img src="assets/img/NGT01006-3.jpg" alt="갤러리">
+                </div>
+                <div class="gallery-item" onclick="openGalleryModal(8)">
+                    <img src="assets/img/NGT01308-2.jpg" alt="갤러리">
+                </div>
                 <div class="gallery-item" onclick="openGalleryModal(9)">
-                    <img src="assets/img/NGT01000-3.jpg" alt="갤러리">
+                    <img src="assets/img/NGT01431-3.jpg" alt="갤러리">
+                </div>
+                <div class="gallery-item" onclick="openGalleryModal(10)">
+                    <img src="assets/img/NGT01458-4.jpg" alt="갤러리">
+                </div>
+                <div class="gallery-item" onclick="openGalleryModal(11)">
+                    <img src="assets/img/NGT01673-3.jpg" alt="갤러리">
                 </div>
             </div>
         </section>
@@ -980,9 +1191,23 @@
                     </div>
                 </div>
                 
-                <a href="https://bstsd.or.kr/map" class="map-btn">
-                    <i class="fa-solid fa-map-marker-alt"></i> 오시는 길
-                </a>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.9617566692764!2d126.95780507608751!3d37.508820127435285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca1e769ffa76b%3A0xf4d86228551bfbde!2z7LKc7KO86rWQIO2dkeyEneuPmSDshLHri7k!5e0!3m2!1sko!2skr!4v1756901808676!5m2!1sko!2skr" class="map-iframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="map-buttons">
+                        <a href="https://naver.me/5r98J2ff" class="map-button-item">
+                            <img src="assets/img/map/naver-map.png" alt="네이버 지도" class="map-icon">
+                            <span>네이버 지도</span>
+                        </a>
+                        <a href="https://kko.kakao.com/7wxaB9NrsS" class="map-button-item">
+                            <img src="assets/img/map/kakao-map.png" alt="카카오 지도" class="map-icon">
+                            <span>카카오 지도</span>
+                        </a>
+                        <a href="https://tmapapi.sktelecom.com/main/setting/app.do" class="map-button-item">
+                            <span style="width: 24px; height: 24px; background: #0057FF; color: white; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9rem;">T</span>
+                            <span>티맵</span>
+                        </a>
+                    </div>
+                </div>
             </div>
             
             <div class="info-card fade-in">
@@ -993,31 +1218,99 @@
             </div>
         </section>
 
-        <!-- 지도 섹션 -->
-        <section class="map-section section">
-            <div class="map-container">
-                <div class="map-buttons">
-                    <a href="https://naver.me/5r98J2ff">
-                        <img src="assets/img/map/naver-map.png" alt="네이버 지도" class="map-icon">
-                    </a>
-                    <a href="https://kko.kakao.com/7wxaB9NrsS">
-                        <img src="assets/img/map/kakao-map.png" alt="카카오 지도" class="map-icon">
-                    </a>
+        <!-- 마음 전하실 곳 섹션 -->
+        <section class="account-section">
+            <h2 class="account-title fade-in">마음 전하실 곳</h2>
+            
+            <!-- 신랑측 계좌번호 -->
+            <div class="account-folder" id="groomAccountFolder">
+                <div class="account-folder-header" onclick="toggleAccountFolder('groomAccountFolder')">
+                    <span>신랑측 계좌번호</span>
+                    <i class="fa-solid fa-chevron-down" id="groomAccountIcon"></i>
                 </div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.9617566692764!2d126.95780507608751!3d37.508820127435285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca1e769ffa76b%3A0xf4d86228551bfbde!2z7LKc7KO86rWQIO2dkeyEneuPmSDshLHri7k!5e0!3m2!1sko!2skr!4v1756901808676!5m2!1sko!2skr" class="map-iframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="account-folder-content">
+                    <div class="account-item">
+                        <div class="account-info">
+                            <div class="account-bank">KB국민은행 | 490702-01-141125</div>
+                            <div class="account-name">변지훈</div>
+                        </div>
+                        <button class="account-copy-btn" onclick="copyAccount('490702-01-141125 (KB국민은행)')">
+                            <i class="fa-solid fa-copy"></i> 복사
+                        </button>
+                    </div>
+                    <div class="account-item">
+                        <div class="account-info">
+                            <div class="account-bank">우체국 | 013920-02-207667</div>
+                            <div class="account-name">변정근</div>
+                        </div>
+                        <button class="account-copy-btn" onclick="copyAccount('013920-02-207667 (우체국)')">
+                            <i class="fa-solid fa-copy"></i> 복사
+                        </button>
+                    </div>
+                    <div class="account-item">
+                        <div class="account-info">
+                            <div class="account-bank">우리은행 | 1002-330-853632</div>
+                            <div class="account-name">이덕희</div>
+                        </div>
+                        <button class="account-copy-btn" onclick="copyAccount('1002-330-853632 (우리은행)')">
+                            <i class="fa-solid fa-copy"></i> 복사
+                        </button>
+                    </div>
+                </div>
             </div>
+
+            <!-- 신부측 계좌번호 -->
+            <div class="account-folder active" id="brideAccountFolder">
+                <div class="account-folder-header" onclick="toggleAccountFolder('brideAccountFolder')">
+                    <span>신부측 계좌번호</span>
+                    <i class="fa-solid fa-chevron-up" id="brideAccountIcon"></i>
+                </div>
+                <div class="account-folder-content">
+                    <div class="account-item">
+                        <div class="account-info">
+                            <div class="account-bank">우리은행 | 1002-744-824938</div>
+                            <div class="account-name">이민지</div>
+                        </div>
+                        <button class="account-copy-btn" onclick="copyAccount('1002-744-824938 (우리은행)')">
+                            <i class="fa-solid fa-copy"></i> 복사
+                        </button>
+                    </div>
+                    <div class="account-item">
+                        <div class="account-info">
+                            <div class="account-bank">카카오뱅크 | 3333-07-0912721</div>
+                            <div class="account-name">이종후</div>
+                        </div>
+                        <button class="account-copy-btn" onclick="copyAccount('3333-07-0912721 (카카오뱅크)')">
+                            <i class="fa-solid fa-copy"></i> 복사
+                        </button>
+                    </div>
+                    <div class="account-item">
+                        <div class="account-info">
+                            <div class="account-bank">농협은행 | 100082-52-123839</div>
+                            <div class="account-name">진숙희</div>
+                        </div>
+                        <button class="account-copy-btn" onclick="copyAccount('100082-52-123839 (농협은행)')">
+                            <i class="fa-solid fa-copy"></i> 복사
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 공유 섹션 -->
+        <section class="share-section">
+            <a href="javascript:kakaoShare()" class="share-item">
+                <div class="kakao-icon">TALK</div>
+                <span>카카오톡 공유하기</span>
+            </a>
+            <a href="#" onclick="copyLink(); return false;" class="share-item">
+                <i class="fa-solid fa-link"></i>
+                <span>링크주소 복사하기</span>
+            </a>
         </section>
 
             <!-- 푸터 -->
             <footer class="footer">
-                <div class="footer-buttons">
-                    <a href="javascript:kakaoShare()" class="footer-btn" title="카카오톡으로 공유하기">
-                        <i class="fa-solid fa-share"></i> 공유하기
-                    </a>
-                    <a href="#" onclick="copyLink(); return false;" class="footer-btn" title="링크 복사하기">
-                        <i class="fa-solid fa-link"></i> 링크 복사
-                    </a>
-                </div>
                 <p style="font-size: 0.9rem; opacity: 0.8;">Made By Toolbee</p>
             </footer>
         </div>
@@ -1160,6 +1453,126 @@
                     subtree: true
                 });
             });
+            
+            // 계좌번호 폴더 토글 함수
+            function toggleAccountFolder(folderId) {
+                const folder = document.getElementById(folderId);
+                const icon = document.getElementById(folderId.replace('Folder', 'Icon'));
+                
+                if (folder.classList.contains('active')) {
+                    folder.classList.remove('active');
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                } else {
+                    folder.classList.add('active');
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                }
+            }
+            
+            // 계좌번호 복사 함수
+            function copyAccount(accountInfo) {
+                if (navigator.clipboard && window.isSecureContext) {
+                    navigator.clipboard.writeText(accountInfo).then(() => {
+                        showNotification('계좌번호가 복사되었습니다.\n' + accountInfo, 'success');
+                    }).catch(() => {
+                        fallbackCopyTextToClipboard(accountInfo);
+                    });
+                } else {
+                    fallbackCopyTextToClipboard(accountInfo);
+                }
+            }
+            
+            // 구형 브라우저용 복사 기능
+            function fallbackCopyTextToClipboard(text) {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-999999px';
+                textArea.style.top = '-999999px';
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                
+                try {
+                    document.execCommand('copy');
+                    showNotification('계좌번호가 복사되었습니다.\n' + text, 'success');
+                } catch (err) {
+                    showNotification('계좌번호 복사에 실패했습니다.', 'error');
+                }
+                
+                document.body.removeChild(textArea);
+            }
+            
+            // 알림 표시 함수
+            function showNotification(message, type = 'info') {
+                const existingNotification = document.querySelector('.notification');
+                if (existingNotification) {
+                    existingNotification.remove();
+                }
+
+                const notification = document.createElement('div');
+                notification.className = `notification notification-${type}`;
+                notification.innerHTML = `
+                    <div class="notification-content">
+                        <span class="notification-message">${message}</span>
+                        <button class="notification-close" onclick="this.parentElement.parentElement.remove()">×</button>
+                    </div>
+                `;
+
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: ${type === 'success' ? '#4CAF50' : type === 'error' ? '#f44336' : '#2196F3'};
+                    color: white;
+                    padding: 1rem 1.5rem;
+                    border-radius: 10px;
+                    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+                    z-index: 10000;
+                    max-width: 300px;
+                    animation: slideInRight 0.3s ease-out;
+                    font-family: 'Noto Sans KR', sans-serif;
+                    font-size: 0.9rem;
+                    line-height: 1.4;
+                `;
+
+                notification.querySelector('.notification-content').style.cssText = `
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 1rem;
+                `;
+
+                notification.querySelector('.notification-close').style.cssText = `
+                    background: none;
+                    border: none;
+                    color: white;
+                    font-size: 1.2rem;
+                    cursor: pointer;
+                    padding: 0;
+                    width: 20px;
+                    height: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    transition: background-color 0.2s;
+                `;
+
+                document.body.appendChild(notification);
+
+                setTimeout(() => {
+                    if (notification.parentElement) {
+                        notification.style.animation = 'slideOutRight 0.3s ease-in';
+                        setTimeout(() => {
+                            if (notification.parentElement) {
+                                notification.remove();
+                            }
+                        }, 300);
+                    }
+                }, 3000);
+            }
             
             // 컨텍스트 메뉴 (우클릭) 비활성화
             document.addEventListener('contextmenu', function(e) {
