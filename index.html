@@ -44,6 +44,22 @@
                 -o-user-drag: none;
                 user-drag: none;
                 pointer-events: none;
+                transition: filter 0.3s ease;
+            }
+
+            /* 브라우저 확대 시 이미지 블러 처리 */
+            img.zoom-blur {
+                filter: blur(20px) brightness(0.7) !important;
+                -webkit-filter: blur(20px) brightness(0.7) !important;
+                -moz-filter: blur(20px) brightness(0.7) !important;
+                -ms-filter: blur(20px) brightness(0.7) !important;
+                -o-filter: blur(20px) brightness(0.7) !important;
+            }
+            
+            /* 갤러리 모달 이미지에도 적용 */
+            .gallery-modal-image.zoom-blur {
+                filter: blur(25px) brightness(0.6) !important;
+                -webkit-filter: blur(25px) brightness(0.6) !important;
             }
 
             body {
@@ -71,9 +87,10 @@
                 position: relative;
                 min-height: 80vh;
                 display: flex;
-                align-items: center;
+                align-items: flex-end;
                 justify-content: center;
                 overflow: hidden;
+                padding-bottom: 80px;
             }
 
             .hero-background-image {
@@ -207,7 +224,7 @@
 
             .couple-card {
                 background: white;
-                border-radius: 12px;
+                border-radius: 0;
                 padding: 25px;
                 text-align: center;
                 box-shadow: 0 3px 15px rgba(0,0,0,0.08);
@@ -265,7 +282,7 @@
                 border: none;
                 color: white;
                 padding: 8px 16px;
-                border-radius: 20px;
+                border-radius: 0;
                 text-decoration: none;
                 transition: all 0.3s ease;
                 font-size: 0.85rem;
@@ -283,7 +300,7 @@
             .foldable-content,
             .foldable-content2 {
                 background: linear-gradient(135deg, #f9fafb 0%, #f5f6f7 100%);
-                border-radius: 12px;
+                border-radius: 0;
                 margin-top: 18px;
                 padding: 0;
                 border: 1px solid #e5e7eb;
@@ -322,7 +339,7 @@
                 color: #568a35;
                 text-decoration: none;
                 padding: 6px 12px;
-                border-radius: 6px;
+                border-radius: 0;
                 transition: all 0.2s ease;
                 margin-left: 8px;
             }
@@ -369,11 +386,14 @@
 
             .gallery-item {
                 position: relative;
-                border-radius: 8px;
+                border-radius: 0;
                 overflow: hidden;
                 box-shadow: 0 2px 10px rgba(0,0,0,0.1);
                 transition: transform 0.3s ease;
-                background: white;
+                background: transparent;
+                cursor: pointer;
+                display: flex;
+                align-items: stretch;
             }
 
             .gallery-item:hover {
@@ -384,6 +404,156 @@
                 width: 100%;
                 height: 200px;
                 object-fit: cover;
+                pointer-events: auto;
+                display: block;
+            }
+
+            /* 갤러리 모달 */
+            .gallery-modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.95);
+                z-index: 10000;
+                animation: fadeIn 0.3s ease;
+            }
+
+            .gallery-modal.active {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .gallery-modal-content {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 60px 20px 20px;
+            }
+
+            .gallery-modal-image {
+                max-width: 90%;
+                max-height: 90%;
+                object-fit: contain;
+                border-radius: 0;
+            }
+
+            .gallery-modal-close {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                background: rgba(255, 255, 255, 0.9);
+                border: none;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                font-size: 28px;
+                color: #333;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+                z-index: 10001;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            }
+
+            .gallery-modal-close:hover {
+                background: white;
+                transform: scale(1.1);
+            }
+
+            .gallery-modal-nav {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(255, 255, 255, 0.9);
+                border: none;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                font-size: 24px;
+                color: #333;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+                z-index: 10001;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            }
+
+            .gallery-modal-nav:hover {
+                background: white;
+                transform: translateY(-50%) scale(1.1);
+            }
+
+            .gallery-modal-prev {
+                left: 20px;
+            }
+
+            .gallery-modal-next {
+                right: 20px;
+            }
+
+            .gallery-modal-counter {
+                position: absolute;
+                bottom: 30px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: rgba(255, 255, 255, 0.9);
+                color: #333;
+                padding: 10px 20px;
+                border-radius: 25px;
+                font-size: 14px;
+                font-weight: 500;
+                z-index: 10001;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .gallery-modal-nav {
+                    width: 40px;
+                    height: 40px;
+                    font-size: 20px;
+                }
+
+                .gallery-modal-prev {
+                    left: 10px;
+                }
+
+                .gallery-modal-next {
+                    right: 10px;
+                }
+
+                .gallery-modal-close {
+                    width: 40px;
+                    height: 40px;
+                    font-size: 24px;
+                    top: 10px;
+                    right: 10px;
+                }
+
+                .gallery-modal-counter {
+                    bottom: 20px;
+                    font-size: 12px;
+                    padding: 8px 16px;
+                }
             }
 
             /* 결혼식 정보 섹션 */
@@ -395,7 +565,7 @@
 
             .info-card {
                 background: white;
-                border-radius: 12px;
+                border-radius: 0;
                 padding: 25px;
                 margin: 15px 0;
                 border: 1px solid #eee;
@@ -419,7 +589,7 @@
 
             .transport-info {
                 background: #f8f9fa;
-                border-radius: 8px;
+                border-radius: 0;
                 padding: 20px;
                 margin: 20px 0;
                 text-align: left;
@@ -448,7 +618,7 @@
                 border: none;
                 color: white;
                 padding: 12px 24px;
-                border-radius: 20px;
+                border-radius: 0;
                 text-decoration: none;
                 display: inline-block;
                 margin: 15px;
@@ -485,7 +655,7 @@
             .map-icon {
                 width: 50px;
                 height: 50px;
-                border-radius: 10px;
+                border-radius: 0;
                 box-shadow: 0 2px 8px rgba(0,0,0,0.1);
                 transition: transform 0.3s ease;
             }
@@ -497,7 +667,7 @@
             .map-iframe {
                 width: 100%;
                 height: 250px;
-                border-radius: 8px;
+                border-radius: 0;
                 box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             }
 
@@ -521,7 +691,7 @@
                 border: 1px solid rgba(255,255,255,0.2);
                 color: white;
                 padding: 8px 16px;
-                border-radius: 20px;
+                border-radius: 0;
                 text-decoration: none;
                 transition: all 0.3s ease;
                 font-size: 0.9rem;
@@ -552,7 +722,10 @@
                     box-shadow: none;
                 }
 
-                .hero-section,
+                .hero-section {
+                    padding-bottom: 60px;
+                }
+
                 .bible-section,
                 .couple-section,
                 .gallery-section,
@@ -624,7 +797,7 @@
         <div class="main-container">
             <!-- 히어로 섹션 -->
             <section class="hero-section">
-                <img src="assets/img/NGT00446-2.jpg" alt="메인 사진" class="hero-background-image">
+                <img src="assets/img/NGT00259-3.jpg" alt="메인 사진" class="hero-background-image">
                 <div class="hero-overlay"></div>
                 <div class="hero-content">
                     <h1 class="hero-title">지훈 & 민지</h1>
@@ -641,7 +814,9 @@
                 모든 것을 믿으며<br>
                 모든 것을 바라고<br>
                 모든 것을 견디어 냅니다.
-                <div class="bible-reference">(1코린 13,7)</div>
+                <div class="bible-reference">(1코린 13,7)</div><br>
+                서로의 믿음과 사랑으로 오랜시간을 함께 걸어온 두 사람이<br>
+                이제 하느님 안에서 한마음으로 새로운 여정을 시작하려 합니다.
             </div>
         </section>
 
@@ -705,8 +880,8 @@
                         <p>
                             <strong>부 이종후</strong>
                             <span>
-                                <a href="tel:01000000000" title="전화"><i class="fa-solid fa-phone"></i></a>
-                                <a href="sms:01000000000" title="문자"><i class="fa-solid fa-envelope"></i></a>
+                                <a href="tel:01081126476" title="전화"><i class="fa-solid fa-phone"></i></a>
+                                <a href="sms:01081126476" title="문자"><i class="fa-solid fa-envelope"></i></a>
                                 <a href="#" onclick="bridesFatherAccountNumber(); return false;" title="계좌번호"><i class="fa-solid fa-comments-dollar"></i></a>
                             </span>
                         </p>
@@ -714,7 +889,7 @@
                             <strong>모 진숙희</strong>
                             <span>
                                 <a href="tel:01036126476" title="전화"><i class="fa-solid fa-phone"></i></a>
-                                <a href="sms:01000000000" title="문자"><i class="fa-solid fa-envelope"></i></a>
+                                <a href="sms:01036126476" title="문자"><i class="fa-solid fa-envelope"></i></a>
                                 <a href="#" onclick="bridesMotherAccountNumber(); return false;" title="계좌번호"><i class="fa-solid fa-comments-dollar"></i></a>
                             </span>
                         </p>
@@ -727,26 +902,55 @@
         <section class="gallery-section section">
             <h2 class="section-title fade-in">갤러리</h2>
             <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="assets/img/gallery/1.jpg" alt="갤러리">
+                <div class="gallery-item" onclick="openGalleryModal(0)">
+                    <img src="assets/img/NGT00024-3.jpg" alt="갤러리">
                 </div>
-                <div class="gallery-item">
-                    <img src="assets/img/gallery/2.jpg" alt="갤러리">
-                                </div>
-                <div class="gallery-item">
-                    <img src="assets/img/gallery/3.jpg" alt="갤러리">
-                            </div>
-                <div class="gallery-item">
-                    <img src="assets/img/gallery/4.jpg" alt="갤러리">
-                    </div>
-                <div class="gallery-item">
-                    <img src="assets/img/gallery/5.jpg" alt="갤러리">
-                                </div>
-                <div class="gallery-item">
-                    <img src="assets/img/gallery/6.jpg" alt="갤러리">
+                <div class="gallery-item" onclick="openGalleryModal(1)">
+                    <img src="assets/img/NGT00077-3.jpg" alt="갤러리">
+                </div>
+                <div class="gallery-item" onclick="openGalleryModal(2)">
+                    <img src="assets/img/NGT00109-1.jpg" alt="갤러리">
+                </div>
+                <div class="gallery-item" onclick="openGalleryModal(3)">
+                    <img src="assets/img/NGT00171-3.jpg" alt="갤러리">
+                </div>
+                <div class="gallery-item" onclick="openGalleryModal(4)">
+                    <img src="assets/img/NGT00259-3.jpg" alt="갤러리">
+                </div>
+                <div class="gallery-item" onclick="openGalleryModal(5)">
+                    <img src="assets/img/NGT00622-4.jpg" alt="갤러리">
+                </div>
+                <div class="gallery-item" onclick="openGalleryModal(6)">
+                    <img src="assets/img/NGT00668-3.jpg" alt="갤러리">
+                </div>
+                <div class="gallery-item" onclick="openGalleryModal(7)">
+                    <img src="assets/img/NGT00732-4.jpg" alt="갤러리">
+                </div>
+                <div class="gallery-item" onclick="openGalleryModal(8)">
+                    <img src="assets/img/NGT00860-3.jpg" alt="갤러리">
+                </div>
+                <div class="gallery-item" onclick="openGalleryModal(9)">
+                    <img src="assets/img/NGT01000-3.jpg" alt="갤러리">
                 </div>
             </div>
         </section>
+
+        <!-- 갤러리 모달 -->
+        <div class="gallery-modal" id="galleryModal">
+            <div class="gallery-modal-content">
+                <button class="gallery-modal-close" onclick="closeGalleryModal()">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+                <button class="gallery-modal-nav gallery-modal-prev" onclick="prevGalleryImage()">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="gallery-modal-nav gallery-modal-next" onclick="nextGalleryImage()">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+                <img class="gallery-modal-image" id="galleryModalImage" src="" alt="갤러리">
+                <div class="gallery-modal-counter" id="galleryModalCounter"></div>
+            </div>
+        </div>
 
         <!-- 결혼식 정보 섹션 -->
         <section class="info-section">
@@ -839,6 +1043,123 @@
 
             window.addEventListener('scroll', checkFadeIn);
             window.addEventListener('load', checkFadeIn);
+            
+            // 브라우저 확대 레벨 감지 및 이미지 블러 처리
+            let testElement = null;
+            
+            function detectZoomLevel() {
+                const threshold = 1.25; // 125% 이상 확대 시 블러 적용
+                
+                // 테스트 요소 생성 (한 번만)
+                if (!testElement) {
+                    testElement = document.createElement('div');
+                    testElement.style.cssText = 'width:100px;height:100px;position:absolute;visibility:hidden;top:-9999px;left:-9999px;';
+                    document.body.appendChild(testElement);
+                }
+                
+                // 방법 1: 실제 픽셀 크기 비교 (가장 정확)
+                const logicalWidth = 100;
+                const actualWidth = testElement.offsetWidth;
+                const zoomRatio = actualWidth / logicalWidth;
+                
+                // 방법 2: outerWidth와 innerWidth 비교
+                let widthRatio = 1;
+                if (window.outerWidth > 0 && window.innerWidth > 0) {
+                    widthRatio = window.outerWidth / window.innerWidth;
+                }
+                
+                // 방법 3: screen.width와 innerWidth 비교
+                let screenRatio = 1;
+                if (window.screen.width > 0 && window.innerWidth > 0) {
+                    screenRatio = window.screen.width / window.innerWidth;
+                }
+                
+                // devicePixelRatio 보정 (고해상도 디스플레이)
+                const devicePixelRatio = window.devicePixelRatio || 1;
+                
+                // 실제 줌 레벨 계산
+                // zoomRatio가 가장 정확하므로 우선 사용
+                let zoomLevel = zoomRatio;
+                
+                // 고해상도 디스플레이가 아닌 경우 다른 방법도 고려
+                if (devicePixelRatio <= 1.5) {
+                    zoomLevel = Math.max(zoomRatio, widthRatio, screenRatio);
+                }
+                
+                return zoomLevel;
+            }
+            
+            // 전역 함수로 노출 (다른 스크립트에서도 사용 가능)
+            window.applyZoomBlur = function() {
+                try {
+                    const zoomLevel = detectZoomLevel();
+                    const threshold = 1.25; // 125% 이상 확대 시 블러 적용
+                    
+                    const allImages = document.querySelectorAll('img');
+                    
+                    if (zoomLevel >= threshold) {
+                        // 줌 레벨이 임계값 이상이면 블러 적용
+                        allImages.forEach(img => {
+                            img.classList.add('zoom-blur');
+                            // 직접 스타일 적용도 시도
+                            img.style.filter = 'blur(20px) brightness(0.7)';
+                            img.style.webkitFilter = 'blur(20px) brightness(0.7)';
+                        });
+                    } else {
+                        // 줌 레벨이 정상 범위면 블러 제거
+                        allImages.forEach(img => {
+                            img.classList.remove('zoom-blur');
+                            // 직접 스타일 제거
+                            img.style.filter = '';
+                            img.style.webkitFilter = '';
+                        });
+                    }
+                } catch (e) {
+                    console.error('Zoom blur error:', e);
+                }
+            };
+            
+            // 함수 참조 유지
+            const applyZoomBlur = window.applyZoomBlur;
+            
+            // 페이지 로드 시 적용
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    setTimeout(applyZoomBlur, 100);
+                });
+            } else {
+                setTimeout(applyZoomBlur, 100);
+            }
+            
+            // 리사이즈 및 줌 변경 시 확인
+            window.addEventListener('resize', function() {
+                setTimeout(applyZoomBlur, 50);
+            });
+            window.addEventListener('orientationchange', function() {
+                setTimeout(applyZoomBlur, 100);
+            });
+            
+            // 주기적으로 줌 레벨 확인 (더 자주 체크)
+            let lastZoomLevel = 1;
+            setInterval(function() {
+                const currentZoomLevel = detectZoomLevel();
+                if (Math.abs(currentZoomLevel - lastZoomLevel) > 0.02) {
+                    applyZoomBlur();
+                    lastZoomLevel = currentZoomLevel;
+                }
+            }, 200);
+            
+            // 이미지 로드 시에도 적용
+            document.addEventListener('DOMContentLoaded', function() {
+                const observer = new MutationObserver(function(mutations) {
+                    applyZoomBlur();
+                });
+                
+                observer.observe(document.body, {
+                    childList: true,
+                    subtree: true
+                });
+            });
             
             // 컨텍스트 메뉴 (우클릭) 비활성화
             document.addEventListener('contextmenu', function(e) {

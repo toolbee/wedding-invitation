@@ -94,11 +94,11 @@ function fallbackCopyTextToClipboard(text) {
 
 // 신부 계좌번호 복사 (개선된 버전)
 function brideAccountNumber() {
-    const brideAccount = '490702-01-141125 (KB국민은행)';
+    const brideAccount = '1002-744-824938 (우리은행)';
     
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(brideAccount).then(() => {
-            showNotification('신부의 계좌번호가 복사되었습니다.\n490702-01-141125 (KB국민은행)', 'success');
+            showNotification('신부의 계좌번호가 복사되었습니다.\n'+ brideAccount, 'success');
         }).catch(() => {
             fallbackCopyTextToClipboard(brideAccount);
         });
@@ -113,7 +113,7 @@ function groomAccountNumber() {
     
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(groomAccount).then(() => {
-            showNotification('신랑의 계좌번호가 복사되었습니다.\n490702-01-141125 (KB국민은행)', 'success');
+            showNotification('신랑의 계좌번호가 복사되었습니다.\n' + groomAccount, 'success');
         }).catch(() => {
             fallbackCopyTextToClipboard(groomAccount);
         });
@@ -122,13 +122,13 @@ function groomAccountNumber() {
     }
 }
 
-// 아버님 계좌번호 복사 (개선된 버전)
+// 신랑 아버님 계좌번호 복사 (개선된 버전)
 function groomsFatherAccountNumber() {
-    const groomsFatherAccount = '00000000 국민은행';
+    const groomsFatherAccount = '013920-02-207667 (우체국)';
     
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(groomsFatherAccount).then(() => {
-            showNotification('계좌번호가 복사되었습니다.\n00000000 국민은행', 'success');
+            showNotification('계좌번호가 복사되었습니다.\n' + groomsFatherAccount, 'success');
         }).catch(() => {
             fallbackCopyTextToClipboard(groomsFatherAccount);
         });
@@ -139,7 +139,7 @@ function groomsFatherAccountNumber() {
 
 // 신랑 어머님 계좌번호 복사 (개선된 버전)
 function groomsMotherAccountNumber() {
-    const groomsMotherAccount = '00000000';
+    const groomsMotherAccount = '1002-330-853632 (우리은행)';
     
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(groomsMotherAccount).then(() => {
@@ -154,7 +154,7 @@ function groomsMotherAccountNumber() {
 
 // 신부 아버님 계좌번호 복사 (개선된 버전)
 function bridesFatherAccountNumber() {
-    const bridesFatherAccount = '00000000';
+    const bridesFatherAccount = '3333-07-0912721 (카카오뱅크)';
     
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(bridesFatherAccount).then(() => {
@@ -169,7 +169,7 @@ function bridesFatherAccountNumber() {
 
 // 신부 어머님 계좌번호 복사 (개선된 버전)
 function bridesMotherAccountNumber() {
-    const bridesMotherAccount = '00000000';
+    const bridesMotherAccount = '100082-52-123839 (농협은행)';
     
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(bridesMotherAccount).then(() => {
@@ -435,3 +435,101 @@ window.addEventListener('load', function() {
 // 터치 이벤트 최적화 (모바일)
 document.addEventListener('touchstart', function() {}, {passive: true});
 document.addEventListener('touchmove', function() {}, {passive: true});
+
+// 갤러리 모달 기능
+let currentGalleryIndex = 0;
+const galleryImages = [
+    'assets/img/NGT00024-3.jpg',
+    'assets/img/NGT00077-3.jpg',
+    'assets/img/NGT00109-1.jpg',
+    'assets/img/NGT00171-3.jpg',
+    'assets/img/NGT00259-3.jpg',
+    'assets/img/NGT00622-4.jpg',
+    'assets/img/NGT00668-3.jpg',
+    'assets/img/NGT00732-4.jpg',
+    'assets/img/NGT00860-3.jpg',
+    'assets/img/NGT01000-3.jpg'
+];
+
+function openGalleryModal(index) {
+    currentGalleryIndex = index;
+    const modal = document.getElementById('galleryModal');
+    const modalImage = document.getElementById('galleryModalImage');
+    const modalCounter = document.getElementById('galleryModalCounter');
+    
+    modalImage.src = galleryImages[index];
+    modalCounter.textContent = `${index + 1} / ${galleryImages.length}`;
+    modal.classList.add('active');
+    
+    // body 스크롤 방지
+    document.body.style.overflow = 'hidden';
+    
+    // ESC 키로 닫기
+    document.addEventListener('keydown', handleGalleryKeydown);
+    
+    // 이미지 로드 후 줌 블러 재적용
+    modalImage.onload = function() {
+        if (typeof window.applyZoomBlur === 'function') {
+            window.applyZoomBlur();
+        }
+    };
+}
+
+function closeGalleryModal() {
+    const modal = document.getElementById('galleryModal');
+    modal.classList.remove('active');
+    
+    // body 스크롤 복원
+    document.body.style.overflow = '';
+    
+    // 키보드 이벤트 제거
+    document.removeEventListener('keydown', handleGalleryKeydown);
+}
+
+function prevGalleryImage() {
+    currentGalleryIndex = (currentGalleryIndex - 1 + galleryImages.length) % galleryImages.length;
+    updateGalleryModal();
+}
+
+function nextGalleryImage() {
+    currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
+    updateGalleryModal();
+}
+
+function updateGalleryModal() {
+    const modalImage = document.getElementById('galleryModalImage');
+    const modalCounter = document.getElementById('galleryModalCounter');
+    
+    modalImage.src = galleryImages[currentGalleryIndex];
+    modalCounter.textContent = `${currentGalleryIndex + 1} / ${galleryImages.length}`;
+    
+    // 줌 블러 재적용 (모달 이미지에도 적용)
+    setTimeout(function() {
+        if (typeof window.applyZoomBlur === 'function') {
+            window.applyZoomBlur();
+        }
+    }, 100);
+}
+
+function handleGalleryKeydown(e) {
+    if (e.key === 'Escape') {
+        closeGalleryModal();
+    } else if (e.key === 'ArrowLeft') {
+        prevGalleryImage();
+    } else if (e.key === 'ArrowRight') {
+        nextGalleryImage();
+    }
+}
+
+// 모달 배경 클릭 시 닫기
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('galleryModal');
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            // 모달 배경을 클릭한 경우에만 닫기
+            if (e.target === modal) {
+                closeGalleryModal();
+            }
+        });
+    }
+});
