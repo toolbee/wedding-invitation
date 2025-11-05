@@ -194,11 +194,12 @@
                 position: relative;
             }
 
-            .bible-quote::before {
-                content: '🔑';
+            .bible-quote-icon {
                 display: block;
-                font-size: 1.8rem;
-                margin-bottom: 20px;
+                margin: 0 auto 20px;
+                width: 50px;
+                height: 50px;
+                object-fit: contain;
                 opacity: 0.6;
             }
 
@@ -994,6 +995,12 @@
                 font-weight: 700;
                 font-display: swap;
             }
+            @font-face {
+                font-family: 'SchoolSafeDictation';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimBadasseugiTTF-L.woff2') format('woff2');
+                font-weight: normal;
+                font-display: swap;
+            }
 
             /* 스크롤 애니메이션 */
             .fade-in {
@@ -1015,7 +1022,7 @@
                 <img src="assets/img/NGT00259-3.jpg" alt="메인 사진" class="hero-background-image">
                 <div class="hero-overlay"></div>
                 <div class="hero-content">
-                    <h1 class="hero-title">지훈 & 민지</h1>
+                    <h1 class="hero-title">지훈 ❤ 민지</h1>
                     <p class="hero-subtitle">We're getting married</p>
                     <div class="wedding-date">2025년 12월 6일 토요일 오후 3시</div>
                     <div class="wedding-location">흑석동성당 내 카나의 혼인성당 2층</div>
@@ -1025,6 +1032,7 @@
         <!-- 성경 구절 섹션 -->
         <section class="bible-section">
             <div class="bible-quote fade-in">
+                <img src="assets/img/c1593ef10efd.png" alt="열쇠" class="bible-quote-icon">
                 사랑은 모든 것을 덮어 주고<br>
                 모든 것을 믿으며<br>
                 모든 것을 바라고<br>
@@ -1111,7 +1119,7 @@
                     <img src="assets/img/NGT00036-3.jpg" alt="갤러리">
                 </div>
                 <div class="gallery-item" onclick="openGalleryModal(1)">
-                    <img src="assets/img/NGT00171-3.jpg" alt="갤러리">
+                    <img src="assets/img/NGT00171-4.jpg" alt="갤러리">
                 </div>
                 <div class="gallery-item" onclick="openGalleryModal(2)">
                     <img src="assets/img/NGT00194-3.jpg" alt="갤러리">
@@ -1120,28 +1128,22 @@
                     <img src="assets/img/NGT00550-1.jpg" alt="갤러리">
                 </div>
                 <div class="gallery-item" onclick="openGalleryModal(4)">
-                    <img src="assets/img/NGT00566-3.jpg" alt="갤러리">
-                </div>
-                <div class="gallery-item" onclick="openGalleryModal(5)">
-                    <img src="assets/img/NGT00622-4.jpg" alt="갤러리">
-                </div>
-                <div class="gallery-item" onclick="openGalleryModal(6)">
                     <img src="assets/img/NGT00860-3.jpg" alt="갤러리">
                 </div>
-                <div class="gallery-item" onclick="openGalleryModal(7)">
+                <div class="gallery-item" onclick="openGalleryModal(5)">
                     <img src="assets/img/NGT01006-3.jpg" alt="갤러리">
                 </div>
-                <div class="gallery-item" onclick="openGalleryModal(8)">
+                <div class="gallery-item" onclick="openGalleryModal(6)">
                     <img src="assets/img/NGT01308-2.jpg" alt="갤러리">
                 </div>
-                <div class="gallery-item" onclick="openGalleryModal(9)">
-                    <img src="assets/img/NGT01431-3.jpg" alt="갤러리">
-                </div>
-                <div class="gallery-item" onclick="openGalleryModal(10)">
+                <div class="gallery-item" onclick="openGalleryModal(7)">
                     <img src="assets/img/NGT01458-4.jpg" alt="갤러리">
                 </div>
-                <div class="gallery-item" onclick="openGalleryModal(11)">
+                <div class="gallery-item" onclick="openGalleryModal(8)">
                     <img src="assets/img/NGT01673-3.jpg" alt="갤러리">
+                </div>
+                <div class="gallery-item" onclick="openGalleryModal(9)">
+                    <img src="assets/img/NGT01725-6.jpg" alt="갤러리">
                 </div>
             </div>
         </section>
@@ -1178,10 +1180,8 @@
                         <strong>지하철:</strong> 9호선 흑석역 4번 출구 도보 5분
                     </div>
                     <div class="transport-detail">
-                        <strong>버스:</strong> 흑석동 효사정 앞: 151, 350, 360, 640, 752
-                    </div>
-                    <div class="transport-detail">
-                        <strong>버스:</strong> 중앙대학교: 5515, 5517, 5524
+                        <strong>버스:</strong> 흑석동 효사정 앞: 151, 350, 360, 640, 752<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;중앙대학교: 5515, 5517, 5524
                     </div>
                     <div class="transport-detail">
                         <strong>주차:</strong> 성당 지하 주차장 B1, B2 (최대 140대)
@@ -1202,10 +1202,6 @@
                             <img src="assets/img/map/kakao-map.png" alt="카카오 지도" class="map-icon">
                             <span>카카오 지도</span>
                         </a>
-                        <a href="https://tmapapi.sktelecom.com/main/setting/app.do" class="map-button-item">
-                            <span style="width: 24px; height: 24px; background: #0057FF; color: white; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9rem;">T</span>
-                            <span>티맵</span>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -1214,7 +1210,11 @@
                 <div class="transport-title" style="justify-content: center; margin-bottom: 1rem;">
                     <i class="fa-solid fa-star" style="color: #568a35;"></i> 화환 안내
                 </div>
-                <p class="info-text">화환, 꽃바구니는 정중히 사양합니다.<br>화환 대신 축복미(쌀화환)를 보내주시면 어려운 이웃들에게 전달하겠습니다.</p>
+                <p class="info-text">
+                    화환, 꽃바구니는 정중히 사양합니다.<br>
+                    화환 대신 축복미(쌀화환)를 보내주시면<br>
+                    어려운 이웃들에게 전달하겠습니다.
+                </p>
             </div>
         </section>
 

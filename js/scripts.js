@@ -440,17 +440,15 @@ document.addEventListener('touchmove', function() {}, {passive: true});
 let currentGalleryIndex = 0;
 const galleryImages = [
     'assets/img/NGT00036-3.jpg',
-    'assets/img/NGT00171-3.jpg',
+    'assets/img/NGT00171-4.jpg',
     'assets/img/NGT00194-3.jpg',
     'assets/img/NGT00550-1.jpg',
-    'assets/img/NGT00566-3.jpg',
-    'assets/img/NGT00622-4.jpg',
     'assets/img/NGT00860-3.jpg',
     'assets/img/NGT01006-3.jpg',
-    'assets/img/NGT01073-3.jpg',
     'assets/img/NGT01308-2.jpg',
-    'assets/img/NGT01431-3.jpg',
-    'assets/img/NGT01673-3.jpg'
+    'assets/img/NGT01458-4.jpg',
+    'assets/img/NGT01673-3.jpg',
+    'assets/img/NGT01725-6.jpg'
 ];
 
 function openGalleryModal(index) {
