@@ -213,7 +213,7 @@ function showNotification(message, type = 'info') {
         z-index: 10000;
         max-width: 300px;
         animation: slideInRight 0.3s ease-out;
-        font-family: 'Noto Sans KR', sans-serif;
+        font-family: 'SchoolSafeDictation', sans-serif;
         font-size: 0.9rem;
         line-height: 1.4;
     `;
