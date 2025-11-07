@@ -2,8 +2,13 @@
 <html lang="ko">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <meta property="og:image" content="assets/img/url-main.jpg">
+        <meta property="og:title" content="지훈🤍민지의 결혼식" />
         <meta property="og:description" content="2025.12.06 지훈🤍민지 결혼합니다."/>
+        <meta property="og:image" content="assets/img/NGT00259-3.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="지훈🤍민지의 결혼식" />
+        <meta name="twitter:description" content="2025.12.06 지훈🤍민지 결혼합니다." />
+        <meta name="twitter:image" content="assets/img/NGT00259-3.jpg" />
         <meta charset="utf-8" />
         <meta name="description" content="지훈과 민지의 결혼식에 초대합니다" />
         <meta name="author" content="" />
@@ -868,19 +873,6 @@
                 font-size: 1.2rem;
             }
 
-            .kakao-icon {
-                width: 24px;
-                height: 24px;
-                background: #FEE500;
-                border-radius: 4px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: #3C1E1E;
-                font-weight: bold;
-                font-size: 0.7rem;
-            }
-
             @media (max-width: 768px) {
                 .account-section,
                 .share-section {
@@ -1299,9 +1291,9 @@
 
         <!-- 공유 섹션 -->
         <section class="share-section">
-            <a href="javascript:kakaoShare()" class="share-item">
-                <div class="kakao-icon">TALK</div>
-                <span>카카오톡 공유하기</span>
+            <a href="#" onclick="sharePage(); return false;" class="share-item">
+                <i class="fa-solid fa-share-nodes"></i>
+                <span>공유하기</span>
             </a>
             <a href="#" onclick="copyLink(); return false;" class="share-item">
                 <i class="fa-solid fa-link"></i>
