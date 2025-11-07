@@ -475,7 +475,7 @@ const galleryImages = [
     'assets/img/NGT01006-3.jpg',
     'assets/img/NGT01308-2.jpg',
     'assets/img/NGT01458-4.jpg',
-    'assets/img/NGT01673-3.jpg',
+    'assets/img/IMG_1145.jpeg',
     'assets/img/NGT01725-6.jpg'
 ];
 
