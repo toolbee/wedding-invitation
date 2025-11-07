@@ -55,24 +55,25 @@ function initSmoothScroll() {
 }
 
 // 링크 복사 기능 (개선된 버전)
-function copyLink() {
+function copyLink(customMessage) {
     const url = window.location.href;
+    const successMessage = customMessage || '링크가 복사되었습니다. 널리널리 퍼뜨려주세요 💕';
     
     if (navigator.clipboard && window.isSecureContext) {
         // 모던 브라우저용 Clipboard API
         navigator.clipboard.writeText(url).then(() => {
-            showNotification('링크가 복사되었습니다. 널리널리 퍼뜨려주세요 💕', 'success');
+            showNotification(successMessage, 'success');
         }).catch(() => {
-            fallbackCopyTextToClipboard(url);
+            fallbackCopyTextToClipboard(url, successMessage);
         });
     } else {
         // 구형 브라우저용 fallback
-        fallbackCopyTextToClipboard(url);
+        fallbackCopyTextToClipboard(url, successMessage);
     }
 }
 
 // 구형 브라우저용 복사 기능
-function fallbackCopyTextToClipboard(text) {
+function fallbackCopyTextToClipboard(text, successMessage = '링크가 복사되었습니다. 널리널리 퍼뜨려주세요 💕') {
     const textArea = document.createElement("textarea");
     textArea.value = text;
     textArea.style.position = 'fixed';
@@ -84,7 +85,7 @@ function fallbackCopyTextToClipboard(text) {
     
     try {
         document.execCommand('copy');
-        showNotification('링크가 복사되었습니다. 널리널리 퍼뜨려주세요 💕', 'success');
+        showNotification(successMessage, 'success');
     } catch (err) {
         showNotification('링크 복사에 실패했습니다.', 'error');
     }
@@ -92,93 +93,120 @@ function fallbackCopyTextToClipboard(text) {
     document.body.removeChild(textArea);
 }
 
+// 기본 공유 기능
+function sharePage() {
+    const shareData = {
+        title: '지훈🤍민지의 결혼식',
+        text: '2025년 12월 6일, 흑석동성당 내 카나의 혼인성당 2층에서 뵈어요.',
+        url: window.location.href
+    };
+    const fallbackMessage = '공유가 지원되지 않아 링크를 대신 복사했습니다. 널리널리 퍼뜨려주세요 💕';
+
+    if (navigator.share) {
+        navigator.share(shareData).catch((error) => {
+            if (error && error.name === 'AbortError') {
+                return;
+            }
+            copyLink(fallbackMessage);
+        });
+    } else {
+        copyLink(fallbackMessage);
+    }
+}
+
 // 신부 계좌번호 복사 (개선된 버전)
 function brideAccountNumber() {
     const brideAccount = '1002-744-824938 (우리은행)';
+    const successMessage = '신부의 계좌번호가 복사되었습니다.\n' + brideAccount;
     
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(brideAccount).then(() => {
-            showNotification('신부의 계좌번호가 복사되었습니다.\n'+ brideAccount, 'success');
+            showNotification(successMessage, 'success');
         }).catch(() => {
-            fallbackCopyTextToClipboard(brideAccount);
+            fallbackCopyTextToClipboard(brideAccount, successMessage);
         });
     } else {
-        fallbackCopyTextToClipboard(brideAccount);
+        fallbackCopyTextToClipboard(brideAccount, successMessage);
     }
 }
 
 // 신랑 계좌번호 복사 (개선된 버전)
 function groomAccountNumber() {
     const groomAccount = '490702-01-141125 (KB국민은행)';
+    const successMessage = '신랑의 계좌번호가 복사되었습니다.\n' + groomAccount;
     
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(groomAccount).then(() => {
-            showNotification('신랑의 계좌번호가 복사되었습니다.\n' + groomAccount, 'success');
+            showNotification(successMessage, 'success');
         }).catch(() => {
-            fallbackCopyTextToClipboard(groomAccount);
+            fallbackCopyTextToClipboard(groomAccount, successMessage);
         });
     } else {
-        fallbackCopyTextToClipboard(groomAccount);
+        fallbackCopyTextToClipboard(groomAccount, successMessage);
     }
 }
 
 // 신랑 아버님 계좌번호 복사 (개선된 버전)
 function groomsFatherAccountNumber() {
     const groomsFatherAccount = '013920-02-207667 (우체국)';
+    const successMessage = '계좌번호가 복사되었습니다.\n' + groomsFatherAccount;
     
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(groomsFatherAccount).then(() => {
-            showNotification('계좌번호가 복사되었습니다.\n' + groomsFatherAccount, 'success');
+            showNotification(successMessage, 'success');
         }).catch(() => {
-            fallbackCopyTextToClipboard(groomsFatherAccount);
+            fallbackCopyTextToClipboard(groomsFatherAccount, successMessage);
         });
     } else {
-        fallbackCopyTextToClipboard(groomsFatherAccount);
+        fallbackCopyTextToClipboard(groomsFatherAccount, successMessage);
     }
 }
 
 // 신랑 어머님 계좌번호 복사 (개선된 버전)
 function groomsMotherAccountNumber() {
     const groomsMotherAccount = '1002-330-853632 (우리은행)';
+    const successMessage = '계좌번호가 복사되었습니다.\n' + groomsMotherAccount;
     
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(groomsMotherAccount).then(() => {
-            showNotification('계좌번호가 복사되었습니다.\n' + groomsMotherAccount, 'success');
+            showNotification(successMessage, 'success');
         }).catch(() => {
-            fallbackCopyTextToClipboard(groomsMotherAccount);
+            fallbackCopyTextToClipboard(groomsMotherAccount, successMessage);
         });
     } else {
-        fallbackCopyTextToClipboard(groomsMotherAccount);
+        fallbackCopyTextToClipboard(groomsMotherAccount, successMessage);
     }
 }
 
 // 신부 아버님 계좌번호 복사 (개선된 버전)
 function bridesFatherAccountNumber() {
     const bridesFatherAccount = '3333-07-0912721 (카카오뱅크)';
+    const successMessage = '계좌번호가 복사되었습니다.\n' + bridesFatherAccount;
     
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(bridesFatherAccount).then(() => {
-            showNotification('계좌번호가 복사되었습니다.\n' + bridesFatherAccount, 'success');
+            showNotification(successMessage, 'success');
         }).catch(() => {
-            fallbackCopyTextToClipboard(bridesFatherAccount);
+            fallbackCopyTextToClipboard(bridesFatherAccount, successMessage);
         });
     } else {
-        fallbackCopyTextToClipboard(bridesFatherAccount);
+        fallbackCopyTextToClipboard(bridesFatherAccount, successMessage);
     }
 }
 
 // 신부 어머님 계좌번호 복사 (개선된 버전)
 function bridesMotherAccountNumber() {
     const bridesMotherAccount = '100082-52-123839 (농협은행)';
+    const successMessage = '계좌번호가 복사되었습니다.\n' + bridesMotherAccount;
     
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(bridesMotherAccount).then(() => {
-            showNotification('계좌번호가 복사되었습니다.\n' + bridesMotherAccount, 'success');
+            showNotification(successMessage, 'success');
         }).catch(() => {
-            fallbackCopyTextToClipboard(bridesMotherAccount);
+            fallbackCopyTextToClipboard(bridesMotherAccount, successMessage);
         });
     } else {
-        fallbackCopyTextToClipboard(bridesMotherAccount);
+        fallbackCopyTextToClipboard(bridesMotherAccount, successMessage);
     }
 }
 
